@@ -1,25 +1,20 @@
-#!/usr/bin/python
-#
-# Flask server, woo!
-#
+from flask import Flask, request
+from flask_restful import Resource, Api
 
-from flask import Flask, request, redirect, url_for, send_from_directory
-
-# Setup Flask app.
 app = Flask(__name__)
-app.debug = True
+api = Api(app)
 
+todos = {}
 
-# Routes
-@app.route('/')
-def root():
-  return app.send_static_file('index.html')
+class TodoSimple(Resource):
+    def get(self, todo_id):
+        return {todo_id: todos[todo_id]}
 
-@app.route('/<path:path>')
-def static_proxy(path):
-  # send_static_file will guess the correct MIME type
-  return app.send_static_file(path)
+    def put(self, todo_id):
+        todos[todo_id] = request.form['data']
+        return {todo_id: todos[todo_id]}
 
+api.add_resource(TodoSimple, '/<string:todo_id>')
 
 if __name__ == '__main__':
-  app.run()
+    app.run(debug=True)
