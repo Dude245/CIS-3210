@@ -116,7 +116,9 @@ body {
   padding: 10px 20px;
   font-weight: bold;
 }
-
+input, select, textarea{
+    color: #000000;
+}
 
 /*
  * Footer

@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_restful import Resource, Api, abort
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 api = Api(app)
 
 todos = {}
@@ -23,8 +23,11 @@ class TodoSimple(Resource):
         del todos[todo_id]
         return 'Deleted'
 
+@app.route('/')
+def staticHost():
+    return app.send_static_file('index.html');
 
-api.add_resource(TodoSimple, '/<string:todo_id>')
+api.add_resource(TodoSimple, '/api/<string:todo_id>')
 
 if __name__ == '__main__':
     app.run(debug=True)
