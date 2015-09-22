@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+
     <link rel="stylesheet" type="text/css" media="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -54,7 +55,8 @@
             <h1 class="cover-heading">Lab 2</h1>
             <p class="lead">Press a button, do it</p>
             <p class="lead">
-                <input type="text" name="input" >
+
+                <input type="text" name="text" id = "getInput">
   <br>
   <br>
               <a  id="getButton"class="btn btn-lg btn-default">Get</a>
@@ -84,14 +86,54 @@
     <script src="JS/ie10-viewport-bug-workaround.js"></script>
     <script type = "text/javascript">
     $(document).ready(function(){
+        $("#getButton").click(function(){
+            $.ajax({
+               type: "GET",
+               url: "/api/"+$('#getInput').val(),
+               contentType: "application/json; charset=utf-8",
+
+               success: function(data,status,settings) {
+                  console.log(data);
+                  alert(JSON.stringify(data));
+              },
+               error:function(data){
+                   alert("Error, Not found");
+               }
+
+           });
+        });
+        var value = $('.textbox').val()
         $("#putButton").click(function(){
             $.ajax({
-                url: 'http://127.0.0.1:5000/api/',
-                type: 'PUT',
-                data: 'poop', // or $('#myform').serializeArray()
-                success: function() { alert('PUT completed');},
-                error: function() { alert('Done fucked up');}
-            });
+                url : "/api/" +$('#getInput').val(),
+                type: "PUT",
+                data: {'data':'FUck you you cunt'},
+                 success: function(data, textStatus, jqXHR)
+                 {
+                      alert("Good");
+                 },
+                 error: function (jqXHR, textStatus, errorThrown)
+                 {
+                      alert("error: " + errorThrown);
+                 }
+
+           });
+        });
+        $("#delButton").click(function(){
+            $.ajax({
+               type: "DELETE",
+               url: "/api/"+$('#getInput').val(),
+               contentType: "application/json; charset=utf-8",
+               data: $('#getInput').val(),
+               success: function(data,status,settings) {
+                  console.log(data);
+                  alert(JSON.stringify(data));
+              },
+              error: function(data){
+                  alert("Error deleting")
+              }
+
+           });
         });
     });
 

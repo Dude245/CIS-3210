@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_restful import Resource, Api, abort
 
 app = Flask(__name__, static_url_path='')
@@ -16,6 +16,7 @@ class TodoSimple(Resource):
 
     def put(self, todo_id):
         todos[todo_id] = request.form['data']
+        print request.form['data']
         return {todo_id: todos[todo_id]}
 
     def delete(self, todo_id):
