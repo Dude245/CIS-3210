@@ -107,14 +107,14 @@
             $.ajax({
                 url : "/api/" +$('#getInput').val(),
                 type: "PUT",
-                data: {'data':'FUck you you cunt'},
+                data: {'data':'Fuck you you cunt'},
                  success: function(data, textStatus, jqXHR)
                  {
-                      alert("Good");
+                      alert("Added the Value");
                  },
                  error: function (jqXHR, textStatus, errorThrown)
                  {
-                      alert("error: " + errorThrown);
+                      alert("Error: " + errorThrown);
                  }
 
            });
@@ -124,10 +124,8 @@
                type: "DELETE",
                url: "/api/"+$('#getInput').val(),
                contentType: "application/json; charset=utf-8",
-               data: $('#getInput').val(),
-               success: function(data,status,settings) {
-                  console.log(data);
-                  alert(JSON.stringify(data));
+               success: function() {
+                  alert("Deleted");
               },
               error: function(data){
                   alert("Error deleting")
