@@ -2,7 +2,7 @@
 <html lang="en"><head>
 
     <link rel="stylesheet" type="text/css" media="all">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,55 +25,68 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
     <div class="site-wrapper">
 
-      <div class="site-wrapper-inner">
+        <div class="site-wrapper-inner">
 
-        <div class="cover-container">
+            <div class="cover-container">
 
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Main</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Nathan Reymer</a></li>
-                  <li><a href="#">0797359</a></li>
-                </ul>
-              </nav>
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">Main</h3>
+                        <nav>
+                            <ul class="nav masthead-nav">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">Nathan Reymer</a></li>
+                                <li><a href="#">0797359</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="inner cover">
+                    <h1 class="cover-heading">Lab 2</h1>
+                    <p class="lead">Press a button, do it</p>
+                    <p class="lead">
+
+                        <a  id="getButton"class="btn btn-lg btn-default">Get</a>
+                        <a  id="putButton"class="btn btn-lg btn-default">Put</a>
+                        <a id="delButton"class="btn btn-lg btn-default">Delete</a>
+
+                        <div id="getFade"  style="display:none;">
+                            <input type="text" name="fInput"><br><br>
+                            <a id="getButtonSub"class="btn btn-lg btn-default">Submit</a>
+                        </div>
+                        <div id="delFade"  style="display:none;">
+                            <input type="text" name="fInput"><br><br>
+                            <a id="delButtonSub"class="btn btn-lg btn-default">Submit</a>
+                        </div>
+                        <div id="putFade"  style="display:none;" >
+                            <input type="text" name="fInput"><br><br>
+                            <input type="text" name="sInput"><br><br>
+                            <a id="putButtonSub"class="btn btn-lg btn-default">Submit</a>
+                        </div>
+                        <br>
+
+                    </p>
+                </div>
+
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>Cover template for <a href="http://getbootstrap.com/">Bootstrap</a></p>
+                    </div>
+                </div>
+
             </div>
-          </div>
-
-          <div class="inner cover">
-            <h1 class="cover-heading">Lab 2</h1>
-            <p class="lead">Press a button, do it</p>
-            <p class="lead">
-
-                <input type="text" name="text" id = "getInput">
-  <br>
-  <br>
-              <a  id="getButton"class="btn btn-lg btn-default">Get</a>
-               <a  id="putButton"class="btn btn-lg btn-default">Put</a>
-                <a id="delButton"class="btn btn-lg btn-default">Delete</a>
-            </p>
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com/">Bootstrap</a></p>
-            </div>
-          </div>
 
         </div>
-
-      </div>
 
     </div>
 
@@ -87,51 +100,61 @@
     <script type = "text/javascript">
     $(document).ready(function(){
         $("#getButton").click(function(){
-            $.ajax({
-               type: "GET",
-               url: "/api/"+$('#getInput').val(),
-               contentType: "application/json; charset=utf-8",
-
-               success: function(data,status,settings) {
-                  console.log(data);
-                  alert(JSON.stringify(data));
-              },
-               error:function(data){
-                   alert("Error, Not found");
-               }
-
-           });
+            $("#putFade").fadeOut(0);
+            $("#delFade").fadeOut(0);
+            $("#getFade").fadeIn();
         });
-        var value = $('.textbox').val()
+        $("#getButtonSub").click(function(){
+            $.ajax({
+                type: "GET",
+                url: "/api/"+$('#fInput').val(),
+                success: function(data,status,settings) {
+                    console.log(JSON.stringify(data));
+                    //alert(JSON.stringify(data));
+                },
+                error:function(data){
+                    //alert("Error, Not found");
+                }
+            });
+        });
         $("#putButton").click(function(){
-            $.ajax({
-                url : "/api/" +$('#getInput').val(),
-                type: "PUT",
-                data: {'data':'Fuck you you cunt'},
-                 success: function(data, textStatus, jqXHR)
-                 {
-                      alert("Added the Value");
-                 },
-                 error: function (jqXHR, textStatus, errorThrown)
-                 {
-                      alert("Error: " + errorThrown);
-                 }
-
-           });
+            $("#getFade").fadeOut(0);
+            $("#delFade").fadeOut(0);
+            $("#putFade").fadeIn();
         });
-        $("#delButton").click(function(){
+        $("#putButtonSub").click(function(){
             $.ajax({
-               type: "DELETE",
-               url: "/api/"+$('#getInput').val(),
-               contentType: "application/json; charset=utf-8",
-               success: function() {
-                  alert("Deleted");
-              },
-              error: function(data){
-                  alert("Error deleting")
-              }
+                url : "/api/" +$('#fInput').val(),
+                type: "PUT",
+                data: {'data':'Test'},
+                success: function(data, textStatus, jqXHR)
+                {
+                    console.log(JSON.stringify(data));
+                    //alert("Added the Value");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    //alert("Error: " + errorThrown);
+                }
+            });
+        });
 
-           });
+        $("#delButton").click(function(){
+            $("#putFade").fadeOut(0);
+            $("#getFade").fadeOut(0);
+            $("#delFade").fadeIn();
+            $("#delButtonSub").click(function(){
+                $.ajax({
+                    type: "DELETE",
+                    url: "/api/"+$('#fInput').val(),
+                    success: function() {
+                        //alert("Deleted");
+                    },
+                    error: function(data){
+                        //alert("Error deleting")
+                    }
+                });
+            });
         });
     });
 

@@ -7,7 +7,7 @@ api = Api(app)
 todos = {}
 def abort_if_todo_doesnt_exist(todo_id):
     if todo_id not in todos:
-        abort(404, message="Todo {} doesn't exist".format(todo_id))
+        abort(404, message="That doesn't exist :( ".format(todo_id))
 
 class TodoSimple(Resource):
     def get(self, todo_id):
