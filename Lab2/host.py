@@ -1,3 +1,4 @@
+# http://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
 from flask import Flask, request, jsonify, make_response
 
 app = Flask(__name__, static_url_path='')
