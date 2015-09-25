@@ -1,34 +1,62 @@
-from flask import Flask, request, jsonify
-from flask_restful import Resource, Api, abort
+from flask import Flask, request, jsonify, make_response
 
 app = Flask(__name__, static_url_path='')
-api = Api(app)
 
-todos = {}
-def abort_if_todo_doesnt_exist(todo_id):
-    if todo_id not in todos:
-        abort(404, message="That doesn't exist :( ".format(todo_id))
-
-class TodoSimple(Resource):
-    def get(self, todo_id):
-        abort_if_todo_doesnt_exist(todo_id)
-        return {todo_id: todos[todo_id]}
-
-    def put(self, todo_id):
-        todos[todo_id] = request.form['data']
-        print request.form['data']
-        return {todo_id: todos[todo_id]}
-
-    def delete(self, todo_id):
-        abort_if_todo_doesnt_exist(todo_id)
-        del todos[todo_id]
-        return 'Deleted'
-
+# Routes
 @app.route('/')
-def staticHost():
-    return app.send_static_file('index.html');
+def root():
+  return app.send_static_file('index.html')
 
-api.add_resource(TodoSimple, '/api/<string:todo_id>')
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
+
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
+def get_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        abort(404)
+    return jsonify({'task': task[0]})
+    
+@app.route('/todo/api/v1.0/tasks', methods=['POST'])
+def create_task():
+    if not request.json or not 'title' in request.json:
+        abort(400)
+    task = {
+        'id': tasks[-1]['id'] + 1,
+        'title': request.json['title'],
+        'description': request.json.get('description', ""),
+        'done': False
+    }
+    tasks.append(task)
+    return jsonify({'task': task}), 201
+
+
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['PUT'])
+def update_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        abort(404)
+    if not request.json:
+        abort(400)
+    if 'title' in request.json and type(request.json['title']) != unicode:
+        abort(400)
+    if 'description' in request.json and type(request.json['description']) is not unicode:
+        abort(400)
+    if 'done' in request.json and type(request.json['done']) is not bool:
+        abort(400)
+    task[0]['title'] = request.json.get('title', task[0]['title'])
+    task[0]['description'] = request.json.get('description', task[0]['description'])
+    task[0]['done'] = request.json.get('done', task[0]['done'])
+    return jsonify({'task': task[0]})
+
+@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['DELETE'])
+def delete_task(task_id):
+    task = [task for task in tasks if task['id'] == task_id]
+    if len(task) == 0:
+        abort(404)
+    tasks.remove(task[0])
+    return jsonify({'result': True})
 
 if __name__ == '__main__':
     app.run(debug=True)
