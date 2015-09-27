@@ -14,30 +14,23 @@ def not_found(error):
 
 @app.route('/api/<path:task_id>', methods=['GET'])
 def get_task(task_id):
-    task = [task for task in tasks if task['id'] == task_id]
-    if len(task) == 0:
-        abort(404)
-    return jsonify({'task': task[0]})
-
-
+    return jsonify({task_id:tasks[task_id]}),201
 
 @app.route('/api/<path:task_id>', methods=['PUT'])
 def put_task(task_id):
-    tasks['task_id']=request.form['data'];
-    return jsonify({task_id:tasks['task_id']}),201
+    tasks[task_id]=request.form['data'];
+    return jsonify({task_id:tasks[task_id]}),201
 
 @app.route('/api/<path:task_id>', methods=['POST'])
 def post_task(task_id):
-    tasks['task_id']=request.form['data'];
-    return jsonify({task_id:tasks['task_id']}),201
+    tasks[task_id]=request.form['data'];
+    return jsonify({task_id:tasks[task_id]}),201
 
 @app.route('/api/<path:task_id>', methods=['DELETE'])
 def delete_task(task_id):
-    task = [task for task in tasks if task['id'] == task_id]
-    if len(task) == 0:
-        abort(404)
-    tasks.remove(task[0])
-    return jsonify({'result': True})
+    print task_id
+    del tasks[task_id];
+    return jsonify({'success':'Deleted'}),201
 
 if __name__ == '__main__':
     app.run(debug=True)
