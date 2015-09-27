@@ -61,16 +61,16 @@
                         <a id="delButton"class="btn btn-lg btn-default">Delete</a>
 
                         <div id="getFade"  style="display:none;">
-                            <input type="text" name="fInput"><br><br>
+                            <input type="text" id="getInput" name="getInput"><br><br>
                             <a id="getButtonSub"class="btn btn-lg btn-default">Submit</a>
                         </div>
                         <div id="delFade"  style="display:none;">
-                            <input type="text" name="fInput"><br><br>
+                            <input type="text" id="delInput" name="delInput"><br><br>
                             <a id="delButtonSub"class="btn btn-lg btn-default">Submit</a>
                         </div>
                         <div id="putFade"  style="display:none;" >
-                            <input type="text" name="fInput"><br><br>
-                            <input type="text" name="sInput"><br><br>
+                            <input type="text" id="putInput1" name="putInput1"><br><br>
+                            <input type="text" id="putInput2" name="putInput2"><br><br>
                             <a id="putButtonSub"class="btn btn-lg btn-default">Submit</a>
                         </div>
                         <br>
@@ -107,15 +107,17 @@
         $("#getButtonSub").click(function(){
             $.ajax({
                 type: "GET",
-                url: "/api/"+$('#fInput').val(),
+                url: "/api/"+$('#getInput').val(),
                 success: function(data,status,settings) {
                     console.log(JSON.stringify(data));
                     //alert(JSON.stringify(data));
                 },
                 error:function(data){
+                    console.log('Error');
                     //alert("Error, Not found");
                 }
             });
+
         });
         $("#putButton").click(function(){
             $("#getFade").fadeOut(0);
@@ -124,7 +126,7 @@
         });
         $("#putButtonSub").click(function(){
             $.ajax({
-                url : "/api/" +$('#fInput').val(),
+                url : "/api/" +$('#putInput1').val(),
                 type: "PUT",
                 data: {'data':'Test'},
                 success: function(data, textStatus, jqXHR)
@@ -146,11 +148,13 @@
             $("#delButtonSub").click(function(){
                 $.ajax({
                     type: "DELETE",
-                    url: "/api/"+$('#fInput').val(),
+                    url: "/api/"+$('#delInput').val(),
                     success: function() {
+                        console.log('Deleted');
                         //alert("Deleted");
                     },
                     error: function(data){
+                        console.log('Error: Not Deleted');
                         //alert("Error deleting")
                     }
                 });
