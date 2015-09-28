@@ -1,0 +1,524 @@
+{
+    "response": {
+        "meta": {
+            "hits": 134024,
+            "time": 59,
+            "offset": 0
+        },
+        "docs": [{
+            "web_url": "http:\/\/www.nytimes.com\/2000\/04\/30\/magazine\/l-the-suburban-nation-945994.html",
+            "snippet": "article makes a better description of the house parties I've seen at college than anything likely to happen in high school. <strong>Crash<\/strong> Ruskin Philadelphia",
+            "lead_paragraph": "We asked online readers of our special issue on the suburbs whether they preferred the city or the suburbs. Here is one response from , a New York Times Web site at www.abuzz.com. When I read Charlie LeDuff's article on Long Beach and its kids, two things kept going through my mind: ''This can't be how they see themselves,'' followed by, ''That sounds like home.''",
+            "abstract": "Crash Ruskin on-line comment, as college student from New Jersey suburb, on April 9 article about Long Beach, New York, and its young people (S)",
+            "print_page": "16",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [],
+            "headline": {
+                "main": "The Suburban Nation"
+            },
+            "keywords": [{
+                "name": "persons",
+                "value": "RUSKIN, CRASH"
+            }, {
+                "name": "glocations",
+                "value": "UNITED STATES"
+            }, {
+                "name": "glocations",
+                "value": "LONG BEACH (NY)"
+            }, {
+                "name": "subject",
+                "value": "SOCIAL CONDITIONS AND TRENDS"
+            }, {
+                "name": "subject",
+                "value": "LIFE STYLES"
+            }, {
+                "name": "subject",
+                "value": "SUBURBS"
+            }, {
+                "name": "subject",
+                "value": "CHILDREN AND YOUTH"
+            }],
+            "pub_date": "2000-04-30T00:00:00Z",
+            "document_type": "article",
+            "news_desk": "Magazine Desk",
+            "section_name": "Magazine; Opinion",
+            "subsection_name": null,
+            "byline": null,
+            "type_of_material": "Letter",
+            "_id": "4fd221198eb7c8105d7a501c",
+            "word_count": 290,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/www.nytimes.com\/1995\/01\/01\/style\/herenow-a-record-shop-where-customers-rival-the-collection.html",
+            "snippet": "as he recalled the time Courtney Love, the lead singer for the rock group Hole and Kurt Cobain's widow, walked into Adult <strong>Crash<\/strong>, the record store that he opened with his girlfriend, Carolyn Schmitt, last August. \"We had the National",
+            "lead_paragraph": "TIM JACKSON shrank nervously as he recalled the time Courtney Love, the lead singer for the rock group Hole and Kurt Cobain's widow, walked into Adult Crash, the record store that he opened with his girlfriend, Carolyn Schmitt, last August. \"We had the National Enquirer article that showed Evan Dando and Courtney Love kissing taped to the window facing outside,\" he said. \"She came in, shopped, bought some stuff, walked by the counter really fast and said sarcastically, 'Nice window display.' \"",
+            "abstract": null,
+            "print_page": "41",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [],
+            "headline": {
+                "main": "A Record Shop Where Customers Rival the Collection",
+                "kicker": "HERENOW"
+            },
+            "keywords": [{
+                "name": "glocations",
+                "value": "NEW YORK CITY"
+            }, {
+                "name": "organizations",
+                "value": "ADULT CRASH"
+            }, {
+                "name": "subject",
+                "value": "RECORDINGS (AUDIO)"
+            }, {
+                "name": "subject",
+                "value": "MUSIC"
+            }],
+            "pub_date": "1995-01-01T00:00:00Z",
+            "document_type": "article",
+            "news_desk": "Style Desk",
+            "section_name": "Style",
+            "subsection_name": null,
+            "byline": {
+                "person": [{
+                    "organization": "",
+                    "role": "reported",
+                    "firstname": "Gia",
+                    "rank": 1,
+                    "lastname": "KOURLAS"
+                }],
+                "original": "By GIA KOURLAS"
+            },
+            "type_of_material": "News",
+            "_id": "4fd1cab68eb7c8105d6ff878",
+            "word_count": 411,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/www.nytimes.com\/1999\/02\/13\/us\/baltimore-journal-mixing-mayhem-and-fun-upsets-a-neighborhood.html",
+            "snippet": " Turner said today, standing in the cavernous hulk of a failed bar in south Baltimore that he intends to convert into the <strong>Crash<\/strong> Cafe, a culinary monument to mayhem. With plans for cars and motorcycles to be wrapped around poles,",
+            "lead_paragraph": "The spectacle of thousands of people watching city officials implode a decrepit high-rise public housing building, as they did here a few years ago, fascinated Patrick Turner. So does the notion that drivers routinely slow down to see a grisly accident. ''People like dramatic themes,'' Mr. Turner said today, standing in the cavernous hulk of a failed bar in south Baltimore that he intends to convert into the Crash Cafe, a culinary monument to mayhem.",
+            "abstract": "Patrick Turner's plans for Crash Cafe, theme restaurant where train, plane and car wrecks would be displayed, upsets residents of Baltimore's nearby historic neighborhoods, as well as Gail A Dunham, president of National Air Disaster Alliance (Baltimore Journal) (S)",
+            "print_page": "15",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [],
+            "headline": {
+                "main": "Baltimore Journal; Mixing Mayhem and Fun Upsets a Neighborhood"
+            },
+            "keywords": [{
+                "name": "persons",
+                "value": "DUNHAM, GAIL A"
+            }, {
+                "name": "persons",
+                "value": "TURNER, PATRICK"
+            }, {
+                "name": "glocations",
+                "value": "BALTIMORE (MD)"
+            }, {
+                "name": "organizations",
+                "value": "CRASH CAFE"
+            }, {
+                "name": "subject",
+                "value": "ACCIDENTS AND SAFETY"
+            }, {
+                "name": "subject",
+                "value": "AIRLINES AND AIRPLANES"
+            }, {
+                "name": "subject",
+                "value": "RESTAURANTS"
+            }, {
+                "name": "subject",
+                "value": "GEOGRAPHIC PROFILES"
+            }],
+            "pub_date": "1999-02-13T00:00:00Z",
+            "document_type": "article",
+            "news_desk": "National Desk",
+            "section_name": "U.S.",
+            "subsection_name": null,
+            "byline": {
+                "person": [{
+                    "organization": "",
+                    "role": "reported",
+                    "firstname": "Michael",
+                    "rank": 1,
+                    "lastname": "JANOFSKY"
+                }],
+                "original": "By MICHAEL JANOFSKY"
+            },
+            "type_of_material": "News",
+            "_id": "4fd218968eb7c8105d795ca6",
+            "word_count": 688,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/www.nytimes.com\/2001\/09\/04\/sports\/crash-davis-82-bull-durham-model-dies.html",
+            "snippet": "<strong>Crash<\/strong> Davis, an obscure 1940's infielder who emerged as something of a celebrity when Kevin Costner became his namesake playing a shrewd but fading minor leaguer in the movie ''Bull Durham,'' died last Friday at his home in",
+            "lead_paragraph": "Crash Davis, an obscure 1940's infielder who emerged as something of a celebrity when Kevin Costner became his namesake playing a shrewd but fading minor leaguer in the movie ''Bull Durham,'' died last Friday at his home in Greensboro, N.C. He was 82. He had cancer, his family said.",
+            "abstract": "Crash Davis, obscure 1940's infielder who emerged as something of celebrity when Kevin Costner became his namesake playing shrewd but fading minor leaguer in movie Bull Durham, dies at 82; photo (M)",
+            "print_page": "11",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [],
+            "headline": {
+                "main": "Crash Davis, 82, 'Bull Durham' Model, Dies",
+                "highlight": "<strong>Crash<\/strong> Davis, 82, 'Bull Durham' Model, Dies"
+            },
+            "keywords": [{
+                "name": "persons",
+                "value": "DAVIS, CRASH"
+            }, {
+                "name": "subject",
+                "value": "BIOGRAPHICAL INFORMATION"
+            }, {
+                "name": "subject",
+                "value": "DEATHS (OBITUARIES)"
+            }],
+            "pub_date": "2001-09-04T00:00:00Z",
+            "document_type": "article",
+            "news_desk": "Sports Desk",
+            "section_name": "Obituaries; Sports",
+            "subsection_name": null,
+            "byline": {
+                "person": [{
+                    "organization": "",
+                    "role": "reported",
+                    "firstname": "Richard",
+                    "rank": 1,
+                    "lastname": "GOLDSTEIN"
+                }],
+                "original": "By RICHARD GOLDSTEIN"
+            },
+            "type_of_material": "Obituary; Biography",
+            "_id": "4fd2323f8eb7c8105d7c2027",
+            "word_count": 702,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/query.nytimes.com\/gst\/abstract.html?res=9405EEDD113DE03ABC4052DFBF668382659EDE",
+            "snippet": "(AP) -- TheI management of the small ParisI theatre announced today it hadI withdrawn screening of the Tyrone I Power film, \"<strong>Crash<\/strong> Dive,\" on de- mand of th theatre staff. I",
+            "lead_paragraph": null,
+            "abstract": "Crash Dive: Paris theatre, Shanghai, withdraws screening on demand of theatre staff",
+            "print_page": "83",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [],
+            "headline": {
+                "main": "Chinese Theatre Withdraws Film"
+            },
+            "keywords": [{
+                "name": "creative_works",
+                "value": "CRASH DIVE"
+            }, {
+                "name": "glocations",
+                "value": "CHINA"
+            }, {
+                "name": "subject",
+                "value": "MOTION PICTURES"
+            }, {
+                "name": "subject",
+                "value": "MOTION PICTURES"
+            }, {
+                "name": "subject",
+                "value": "REVIEWS AND OTHER DATA ON SPECIFIC FILMS"
+            }],
+            "pub_date": "1949-09-18T00:00:00Z",
+            "document_type": "article",
+            "news_desk": null,
+            "section_name": null,
+            "subsection_name": null,
+            "byline": null,
+            "type_of_material": "Article",
+            "_id": "4fc28f2345c1498b0d701369",
+            "word_count": 38,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/www.nytimes.com\/2005\/05\/06\/movies\/x06cras.html",
+            "snippet": "What kind of movie is ''<strong>Crash<\/strong>''? It belongs to a genre that has been flourishing in recent years -- at least in the esteem of critics -- but that still lacks a name. A provisional list of examples might include ''Monster's Ball,''",
+            "lead_paragraph": "What kind of movie is ''Crash''? It belongs to a genre that has been flourishing in recent years -- at least in the esteem of critics -- but that still lacks a name. A provisional list of examples might include ''Monster's Ball,'' ''House of Sand and Fog'' and ''21 Grams.'' In each of these films, as in ''Crash,'' Americans from radically different backgrounds are brought together by a grim serendipity that forces them, or at least the audience, to acknowledge their essential connectedness. The look of these movies and the rough authenticity of their locations create an atmosphere of naturalism that is meant to give force to their rigorously pessimistic view of American life. The performances, often by some of the finest screen actors working today, have the dense texture and sober discipline that we associate with realism. But to classify these movies as realistic would be misleading, as the stories they tell are, in nearly every respect, preposterous, and they tend to be governed less by the spirit of observation than by superstition.",
+            "abstract": "A O Scott reviews movie Crash, directed by Paul Haggis and starring Don Cheadle and Jennifer Esposito; photo (M)",
+            "print_page": "30",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [{
+                "url": "images\/2005\/05\/06\/arts\/06cras.75.jpg",
+                "subtype": "thumbnail",
+                "legacy": {
+                    "hasthumbnail": "Y",
+                    "thumbnailheight": 75,
+                    "thumbnail": "images\/2005\/05\/06\/arts\/06cras.75.jpg"
+                },
+                "type": "image",
+                "height": 75
+            }],
+            "headline": {
+                "main": "Bigotry as the Outer Side of Inner Angst",
+                "kicker": "FILM REVIEW"
+            },
+            "keywords": [{
+                "name": "creative_works",
+                "value": "CRASH (MOVIE)"
+            }, {
+                "name": "persons",
+                "value": "ESPOSITO, JENNIFER"
+            }, {
+                "name": "persons",
+                "value": "BULLOCK, SANDRA"
+            }, {
+                "name": "persons",
+                "value": "CHEADLE, DON"
+            }, {
+                "name": "persons",
+                "value": "DILLON, MATT"
+            }, {
+                "name": "persons",
+                "value": "FRASER, BRENDAN"
+            }, {
+                "name": "persons",
+                "value": "HAGGIS, PAUL"
+            }, {
+                "name": "subject",
+                "value": "MOTION PICTURES"
+            }, {
+                "name": "subject",
+                "value": "REVIEWS"
+            }],
+            "pub_date": "2005-05-06T00:00:00Z",
+            "document_type": "article",
+            "news_desk": "Movies, Performing Arts\/Weekend Desk",
+            "section_name": "Movies; Arts",
+            "subsection_name": null,
+            "byline": {
+                "person": [{
+                    "firstname": "A.",
+                    "middlename": "O.",
+                    "lastname": "SCOTT",
+                    "rank": 1,
+                    "role": "reported",
+                    "organization": ""
+                }],
+                "original": "By A.O. SCOTT"
+            },
+            "type_of_material": "Review",
+            "_id": "4fd2486d8eb7c8105d7e4843",
+            "word_count": 1264,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/www.nytimes.com\/1997\/03\/16\/arts\/driven.html",
+            "snippet": "Photo of James Spader in film Crash",
+            "lead_paragraph": null,
+            "abstract": "Photo of James Spader in film Crash",
+            "print_page": "26",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [],
+            "headline": {
+                "main": "Driven",
+                "kicker": "THIS WEEK"
+            },
+            "keywords": [{
+                "name": "creative_works",
+                "value": "CRASH (MOVIE)"
+            }, {
+                "name": "persons",
+                "value": "SPADER, JAMES"
+            }, {
+                "name": "subject",
+                "value": "MOTION PICTURES"
+            }],
+            "pub_date": "1997-03-16T00:00:00Z",
+            "document_type": "article",
+            "news_desk": "Arts and Leisure Desk",
+            "section_name": null,
+            "subsection_name": null,
+            "byline": null,
+            "type_of_material": "Caption",
+            "_id": "4fd241c98eb7c8105d7da8b7",
+            "word_count": 2,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/query.nytimes.com\/gst\/abstract.html?res=950DE3D71630EF3ABC4E51DFB4668388629EDE",
+            "snippet": "Aldwych Theatre, will be successful here but is probably of little interest to America; an intellectual experiment, \"Head-on <strong>Crash<\/strong>,\" by a new dramatist, Laurence Miller; and a historical play of exceptional value called \"Richard of",
+            "lead_paragraph": null,
+            "abstract": "Head-on Crash, by H Miller (London)",
+            "print_page": "X3",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [],
+            "headline": {
+                "main": "LIFE SEEMS BRIGHTER NOW IN LONDON"
+            },
+            "keywords": [{
+                "name": "creative_works",
+                "value": "HEAD-ON CRASH"
+            }, {
+                "name": "persons",
+                "value": "H MILLER"
+            }, {
+                "name": "glocations",
+                "value": "ENGLAND"
+            }, {
+                "name": "subject",
+                "value": "THEATRE, THE"
+            }, {
+                "name": "subject",
+                "value": "NOTES BY C MORGAN, WITH SPECIAL MENTION OF"
+            }, {
+                "name": "subject",
+                "value": "PLAYS"
+            }, {
+                "name": "subject",
+                "value": "REVIEWS AND NOTES"
+            }],
+            "pub_date": "1933-02-26T00:00:00Z",
+            "document_type": "article",
+            "news_desk": null,
+            "section_name": null,
+            "subsection_name": null,
+            "byline": {
+                "person": [{
+                    "organization": "",
+                    "role": "reported",
+                    "rank": 1,
+                    "firstname": "Charles",
+                    "lastname": "MORGANS"
+                }],
+                "original": "CHARLES MORGANS"
+            },
+            "type_of_material": "Article",
+            "_id": "4fc1d91f45c1498b0d4cd8a4",
+            "word_count": 1013,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/www.nytimes.com\/2006\/03\/02\/movies\/redcarpet\/02cras.html",
+            "snippet": "the leading Oscar-nominated movies, ''<strong>Crash<\/strong>,'' over two of the things Hollywood cares about most: money and credit. Even as the last Oscar ballots were being cast late Tuesday, Cathy Schulman, a producer of",
+            "lead_paragraph": "On the eve of this weekend's Academy Awards, a bare-knuckled fight has broken out among the producers of one of the leading Oscar-nominated movies, ''Crash,'' over two of the things Hollywood cares about most: money and credit. Even as the last Oscar ballots were being cast late Tuesday, Cathy Schulman, a producer of ''Crash,'' filed a lawsuit that accused Bob Yari, her fellow producer and former partner, of acting from ''greed and ego'' in failing to pay at least $2 million in producing fees to her and her partner, the film's executive producer Tom Nunan. Mr. Yari had earlier sued the pair, claiming in January that they had taken funds owed to their joint production company, Bull's Eye Entertainment.",
+            "abstract": "Controversy surrounds film Crash as Academy Awards approach; producer Cathy Schulman files lawsuit that accuses fellow producer Bob Yari of acting from 'greed and ego' in failing to pay at least $2 million in producing fees to her and executive partner Tom Nunan; Yari took out full-page advertisements in Hollywood trade papers asking for abolishment of secret panels that award credit for best picture after he was denied producer credit; will not take home statue if Crash is named best picture; Schulman and Paul Haggis, co-writer and director of film are only producers eligible for prize, though film has six producers in its credits; photo (M)",
+            "print_page": "1",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [{
+                "url": "images\/2006\/03\/02\/arts\/02cras.75.jpg",
+                "subtype": "thumbnail",
+                "legacy": {
+                    "hasthumbnail": "Y",
+                    "thumbnailheight": 75,
+                    "thumbnail": "images\/2006\/03\/02\/arts\/02cras.75.jpg"
+                },
+                "type": "image",
+                "height": 75
+            }],
+            "headline": {
+                "main": "'Crash' Producers Clash Loudly Over Credit and Payment",
+                "highlight": "'<strong>Crash<\/strong>' Producers Clash Loudly Over Credit and Payment"
+            },
+            "keywords": [{
+                "name": "creative_works",
+                "value": "CRASH (MOVIE)"
+            }, {
+                "name": "persons",
+                "value": "SCHULMAN, CATHY"
+            }, {
+                "name": "persons",
+                "value": "YARI, BOB"
+            }, {
+                "name": "persons",
+                "value": "NUNAN, TOM"
+            }, {
+                "name": "persons",
+                "value": "HAGGIS, PAUL"
+            }, {
+                "name": "organizations",
+                "value": "ACADEMY OF MOTION PICTURE ARTS AND SCIENCES"
+            }, {
+                "name": "organizations",
+                "value": "PRODUCERS GUILD OF AMERICA"
+            }, {
+                "name": "subject",
+                "value": "MOTION PICTURES"
+            }, {
+                "name": "subject",
+                "value": "ACADEMY AWARDS (OSCARS)"
+            }, {
+                "name": "subject",
+                "value": "ADVERTISING AND MARKETING"
+            }, {
+                "name": "subject",
+                "value": "SUITS AND LITIGATION"
+            }, {
+                "name": "subject",
+                "value": "AWARDS, DECORATIONS AND HONORS"
+            }],
+            "pub_date": "2006-03-02T00:00:00Z",
+            "document_type": "article",
+            "news_desk": "The Arts\/Cultural Desk",
+            "section_name": "Movies; Arts",
+            "subsection_name": null,
+            "byline": {
+                "person": [{
+                    "organization": "",
+                    "role": "reported",
+                    "rank": 1,
+                    "firstname": "Sharon",
+                    "lastname": "WAXMAN"
+                }],
+                "original": "By SHARON WAXMAN"
+            },
+            "type_of_material": "News",
+            "_id": "4fd254818eb7c8105d7fb628",
+            "word_count": 910,
+            "slideshow_credits": null
+        }, {
+            "web_url": "http:\/\/www.nytimes.com\/2005\/05\/10\/movies\/10darg.html",
+            "snippet": "gangbanger in the nihilistic Los Angeles story ''Menace II Society.'' As it happens, Mr. Tate also plays a significant role in ''<strong>Crash<\/strong>,'' which opened on Friday, the latest in apocalypse entertainment about Los Angeles. An ensemble",
+            "lead_paragraph": "Los Angeles is in love with the idea of its own self-destruction; it's hard to think of another American city so similarly possessed. It is a curious form of romantic self-aggrandizement, one familiar from untold numbers of novels, short stories, films and songs that has now spread to video games, including the forthcoming ''187 Ride or Die,'' about a street racing thug. Its name derived from section 187 of the California penal code, which defines murder, the game features the voice of Larenz Tate, the actor who starred as a murderous gangbanger in the nihilistic Los Angeles story ''Menace II Society.''",
+            "abstract": "Manohla Dargis Critic's Notebook column on Los Angeles as a city in love with the idea of its own self-destruction; discusses new move Crash, directed by Paul Haggis and co-written by Haggis and Robert Moresco (M)",
+            "print_page": "5",
+            "blog": [],
+            "source": "The New York Times",
+            "multimedia": [],
+            "headline": {
+                "main": "Los Angeles, the City Of Fear-Obsessed Angels",
+                "kicker": "CRITIC'S NOTEBOOK"
+            },
+            "keywords": [{
+                "name": "creative_works",
+                "value": "CRASH (MOVIE)"
+            }, {
+                "name": "persons",
+                "value": "MORESCO, ROBERT"
+            }, {
+                "name": "persons",
+                "value": "DAVIS, MIKE"
+            }, {
+                "name": "persons",
+                "value": "HAGGIS, PAUL"
+            }, {
+                "name": "glocations",
+                "value": "LOS ANGELES (CALIF)"
+            }, {
+                "name": "subject",
+                "value": "MOTION PICTURES"
+            }],
+            "pub_date": "2005-05-10T00:00:00Z",
+            "document_type": "article",
+            "news_desk": "The Arts\/Cultural Desk",
+            "section_name": "Movies; Arts",
+            "subsection_name": null,
+            "byline": {
+                "person": [{
+                    "organization": "",
+                    "role": "reported",
+                    "rank": 1,
+                    "firstname": "Manohla",
+                    "lastname": "DARGIS"
+                }],
+                "original": "By MANOHLA DARGIS"
+            },
+            "type_of_material": "News",
+            "_id": "4fd2486e8eb7c8105d7e48c1",
+            "word_count": 1099,
+            "slideshow_credits": null
+        }]
+    },
+    "status": "OK",
+    "copyright": "Copyright (c) 2013 The New York Times Company.  All Rights Reserved."
+}
