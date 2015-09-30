@@ -1,10 +1,9 @@
-# http://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
+import hacks
 from flask import Flask, request, jsonify, make_response
-
+from hacks import crossdomain
 app = Flask(__name__, static_url_path='')
 tasks = {}
 file = open("static/JSON")
-print file.read()
 
 # Routes
 @app.route('/')
@@ -15,25 +14,26 @@ def root():
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-@app.route('/api/<path:task_id>', methods=['GET'])
+@app.route('/api/<path:task_id>', methods=['GET','OPTIONS'])
+@crossdomain(origin='*')
 def get_task(task_id):
     return jsonify({task_id:tasks[task_id]}),201
-
-@app.route('/api/<path:task_id>', methods=['PUT'])
-def put_task(task_id):
-    tasks[task_id]=request.form['data'];
-    return jsonify({task_id:tasks[task_id]}),201
-
-@app.route('/api/<path:task_id>', methods=['POST'])
-def post_task(task_id):
-    tasks[task_id]=request.form['data'];
-    return jsonify({task_id:tasks[task_id]}),201
-
-@app.route('/api/<path:task_id>', methods=['DELETE'])
-def delete_task(task_id):
-    print task_id
-    del tasks[task_id];
-    return jsonify({'success':'Deleted'}),201
+# 
+# @app.route('/api/<path:task_id>', methods=['PUT'])
+# def put_task(task_id):
+#     tasks[task_id]=request.form['data'];
+#     return jsonify({task_id:tasks[task_id]}),201
+#
+# @app.route('/api/<path:task_id>', methods=['POST'])
+# def post_task(task_id):
+#     tasks[task_id]=request.form['data'];
+#     return jsonify({task_id:tasks[task_id]}),201
+#
+# @app.route('/api/<path:task_id>', methods=['DELETE'])
+# def delete_task(task_id):
+#     print task_id
+#     del tasks[task_id];
+#     return jsonify({'success':'Deleted'}),201
 
 if __name__ == '__main__':
     app.run(debug=True)
