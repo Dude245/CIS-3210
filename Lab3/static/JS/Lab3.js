@@ -7,7 +7,7 @@ $(document).ready(function(){
     $("#getButtonSub").click(function(){
         $.ajax({
             type: "GET",
-            url: "http://api.nytimes.com/svc/search/v2/article?format=json&query="+$('#getInput').val()+"&api-key="+apiKey,
+            url: "http://api.nytimes.com/svc/search/v2/articlesearch.json?q="+$('#getInput').val()+"&api-key="+apiKey,
             success: function(data,status,settings) {
                 $('#result').val(JSON.stringify(data));
                 //console.log(JSON.stringify(data));
