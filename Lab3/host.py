@@ -1,6 +1,4 @@
-import hacks
 from flask import Flask, request, jsonify, make_response
-from hacks import crossdomain
 app = Flask(__name__, static_url_path='')
 tasks = {}
 file = open("static/JSON")
@@ -15,10 +13,9 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 @app.route('/api/<path:task_id>', methods=['GET','OPTIONS'])
-@crossdomain(origin='*')
 def get_task(task_id):
     return jsonify({task_id:tasks[task_id]}),201
-# 
+#
 # @app.route('/api/<path:task_id>', methods=['PUT'])
 # def put_task(task_id):
 #     tasks[task_id]=request.form['data'];
