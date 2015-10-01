@@ -9,9 +9,11 @@ $(document).ready(function(){
             type: "GET",
             url: "http://api.nytimes.com/svc/search/v2/articlesearch.json?q="+$('#getInput').val()+"&api-key="+apiKey,
             success: function(data,status,settings) {
-                $('#result').val(JSON.stringify(data));
-                //console.log(JSON.stringify(data));
-                //alert(JSON.stringify(data));
+                var title = data.response.snippet;
+                console.log(title);
+            //     $('#result').val(JSON.stringify(data));
+            //     var json = JSON.parse(JSON.stringify(data));
+	        //     alert(json.response.snippet); //mkyong
             },
             error:function(data,errorThrown){
                 $('#result').val("Error: "+errorThrown);
