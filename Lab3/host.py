@@ -29,22 +29,5 @@ def get_task():
     response.close()
     return jsonify(data),201
 
-#
-# @app.route('/api/<path:task_id>', methods=['PUT'])
-# def put_task(task_id):
-#     tasks[task_id]=request.form['data'];
-#     return jsonify({task_id:tasks[task_id]}),201
-#
-# @app.route('/api/<path:task_id>', methods=['POST'])
-# def post_task(task_id):
-#     tasks[task_id]=request.form['data'];
-#     return jsonify({task_id:tasks[task_id]}),201
-#
-# @app.route('/api/<path:task_id>', methods=['DELETE'])
-# def delete_task(task_id):
-#     print task_id
-#     del tasks[task_id];
-#     return jsonify({'success':'Deleted'}),201
-
 if __name__ == '__main__':
     app.run(debug=True)
