@@ -27,8 +27,6 @@ def get_task():
     keywords = request.args.get("data");
     response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey)
     data = json.load(response)
-    #print data['response']['docs'][0]['lead_paragraph']
-    #"http://api.nytimes.com/svc/search/v2/articlesearch.json?q="+$('#getInput').val()+"&api-key="+apiKey
     response.close()
     return jsonify(data),201
 

@@ -10,11 +10,16 @@ $(document).ready(function(){
             url: "api/nyt/",
             data: {'data':encodeURI($('#getInput').val())},
             success: function(data,status,settings) {
-                var output = document.getElementById("result");
-                output.value ="";
+                //$( "<p>Test</p>" ).insertAfter(".cover-container");
+                // var output = document.getElementById("result");
+                // output.value ="";
                 for (i = 0; i <10; i++) {
-                    output.value = output.value+(JSON.stringify(data['response']['docs'][i]['headline']['main']));
-                    output.value = output.value+ "\n";
+                    line=JSON.stringify(data['response']['docs'][i]['headline']['main']);
+                    link=JSON.stringify(data['response']['docs'][i]['web_url']);
+                    blank="_blank";
+                    $("<a href="+link+">"+line+"</a><br>").insertAfter(".cover-container");
+                    // output.value = output.value+(JSON.stringify(data['response']['docs'][i]['headline']['main']));
+                    // output.value = output.value+ "\n";
                 }
             },
             error:function(data,errorThrown){
@@ -28,11 +33,15 @@ $(document).ready(function(){
             url: "api/nyt/static/",
             data: {'data':encodeURI($('#getInput').val())},
             success: function(data) {
-                var output = document.getElementById("result");
-                output.value ="";
+                // var output = document.getElementById("result");
+                // output.value ="";
                 for (i = 0; i <10; i++) {
-                    output.value = output.value+(JSON.stringify(data['response']['docs'][i]['headline']['main']));
-                    output.value = output.value+ "\n";
+                    line=JSON.stringify(data['response']['docs'][i]['headline']['main']);
+                    link=JSON.stringify(data['response']['docs'][i]['web_url']);
+                    blank="_blank";
+                    $("<a href="+link+">"+line+"</a><br>").insertAfter(".cover-container");
+                    // output.value = output.value+(JSON.stringify(data['response']['docs'][i]['headline']['main']));
+                    // output.value = output.value+ "\n";
                 }
             },
             error:function(data,errorThrown){
