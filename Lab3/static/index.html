@@ -55,11 +55,14 @@
                     <h1 class="cover-heading">Lab 3</h1>
                     <p class="lead">Press a button, do it</p>
                     <p class="lead">
-
-                        <a  id="getButton"class="btn btn-lg btn-default">Get</a>
+                        <form action="">
+                            <input type="radio" id="NYT" name="nytstatic" value="NYT" checked="checked"> NYT&emsp;
+                            <input type="radio" name="nytstatic" value="static"> Static<br><br>
+                        </form>
+                        <a  id="getButton"class="btn btn-lg btn-default">Get</a><br>
 
                         <div id="getFade"  style="display:none;">
-                            <input type="text" id="getInput" name="getInput" placeholder="Keyword:"><br><br>
+                            <br><input type="text" id="getInput" name="getInput" placeholder="Keyword:"><br><br>
                             <a id="getButtonSub"class="btn btn-lg btn-default">Submit</a>
                         </div>
 
