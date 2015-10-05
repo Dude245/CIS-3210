@@ -10,11 +10,11 @@ $(document).ready(function(){
             url: "api/nyt/",
             data: {'data':encodeURI($('#getInput').val())},
             success: function(data,status,settings) {
-                for (i = 9; i>=0 ; i--) {
+                for (i = 0; i<10 ; i++) {
                     line=JSON.stringify(data['response']['docs'][i]['headline']['main']);
                     link=JSON.stringify(data['response']['docs'][i]['web_url']);
                     //<a class=\"test\" href="+link+">"+line+"</a><br>
-                    $('.ResultText').append("<a class=\"test\" href="+link+">"+line+"</a><br>");
+                    $('.ResultText').append("<a target=\"_blank\" href="+link+">"+line+"</a><br>");
                 }
             },
             error:function(data,errorThrown){
