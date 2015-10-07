@@ -15,6 +15,7 @@ db = MySQLdb.connect(host="dursley.socs.uoguelph.ca", # our host, do not modify
                      db="nreymer") # name of the data base, your username, do not modify
 cur = db.cursor()
 ##############################
+cur.execute("INSERT INTO test4 (ikey, searchText, resultsJSON) VALUES(3,'Butt','Sludge');")
 cur.execute("SELECT * FROM test4")
 
 
