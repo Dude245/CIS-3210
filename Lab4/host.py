@@ -2,13 +2,30 @@ from flask import Flask, request, jsonify, make_response
 import urllib2
 import urllib
 import json
-import DB
-
-
+import MySQLdb
 
 app = Flask(__name__, static_url_path='')
 tasks = {}
-jFile = open("static/JSON",'r')
+
+
+
+db = MySQLdb.connect(host="dursley.socs.uoguelph.ca", # our host, do not modify
+                     user="nreymer", # your username (same as in lab)
+                     passwd="0797359", # your password (your student id number)
+                     db="nreymer") # name of the data base, your username, do not modify
+cur = db.cursor()
+##############################
+cur.execute("SELECT * FROM test4")
+
+
+for row in cur.fetchall() :
+     print row
+
+
+cur.close()
+db.close()
+print "ok"
+###############################
 # Routes
 @app.route('/')
 def root():
@@ -26,15 +43,6 @@ def get_task():
     data = json.load(response)
     response.close()
     return jsonify(data),201
-
-
-@app.route('/api/nyt/static/', methods=['GET'])
-def get_static():
-    line = jFile.readline()
-    data = json.loads(line)
-    return jsonify(data),201
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
