@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $("#getButton").click(function(){
         $('#result').val("");
-        $("#getFade").fadeIn();
     });
     $("#getButtonSub").click(function(){
         $('.ResultText').empty();
