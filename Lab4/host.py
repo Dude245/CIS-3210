@@ -29,11 +29,20 @@ def get_task():
     apiKey="6462dcd33e1d47bc2be98167e19c86ab:10:72958436"
     keywords = request.args.get("data");
     response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey)
+    print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
     data = json.load(response)
-    test="Boooooooop";
+    #test="Boooooooop's a daisy it's such a lovely day is'nt it?";
+    test=json.dumps(data)
+    test=test.replace("\'","\\'")
+    test= "\'"+test+"\'"
+    #print test
+
     #print data['response']['docs']
-    cur.execute("INSERT INTO test5 VALUES(NULL,"+"\'"+keywords+"\'"+",+"+"\'"+test+"\'"+");")
+    cur.execute("INSERT INTO test5 VALUES(NULL,"+"\'"+keywords+"\'"+","+test+");")
     db.commit();
+    # cur.execute("SELECT * FROM test5") 
+    # for row in cur.fetchall() :
+    #     print row[0]
     cur.close()
     db.close()
     response.close()
