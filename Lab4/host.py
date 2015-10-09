@@ -30,11 +30,11 @@ def get_task():
     cur = db.cursor()
     cur.execute("SELECT * FROM test5")
     query = ""
-    JSON2 = ""
+    JSON = ""
     for row in cur.fetchall() :
         if(keywords == row[1]):
             query = row[1]
-            JSON2 = row[2]
+            JSON = row[2]
 
     if query!=keywords:
         print "NYT"
@@ -49,9 +49,12 @@ def get_task():
         return jsonify(data),201
     else:
         print "DB"
+        # test=json.dumps(JSON)
+        # JSON = JSON.replace("\\\\\","")
+
         #print JSON+"\n\n"
         #OUT=json.loads(JSON)
-        return JSON2,201
+        return "No",201
 
     cur.close()
     db.close()
