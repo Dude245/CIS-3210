@@ -16,7 +16,6 @@ $(document).ready(function(){
                 }
             },
             error:function(data,errorThrown){
-                $('#result').val("An error occured!");
             }
         });
     });
