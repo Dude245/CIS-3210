@@ -20,34 +20,41 @@ def not_found(error):
 
 @app.route('/api/nyt/', methods=['GET'])
 def get_task():
+    apiKey="6462dcd33e1d47bc2be98167e19c86ab:10:72958436"
+    keywords = request.args.get("data");
     db = MySQLdb.connect(host="dursley.socs.uoguelph.ca", # our host, do not modify
                          user="nreymer", # your username (same as in lab)
                          passwd="0797359", # your password (your student id number)
                          db="nreymer") # name of the data base, your username, do not modify
 
     cur = db.cursor()
-    apiKey="6462dcd33e1d47bc2be98167e19c86ab:10:72958436"
-    keywords = request.args.get("data");
-    response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey)
-    print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
-    data = json.load(response)
-    #test="Boooooooop's a daisy it's such a lovely day is'nt it?";
-    test=json.dumps(data)
-    test=test.replace("\'","\\'")
-    test= "\'"+test+"\'"
-    #print test
+    cur.execute("SELECT * FROM test5")
+    query = ""
+    JSON2 = ""
+    for row in cur.fetchall() :
+        if(keywords == row[1]):
+            query = row[1]
+            JSON2 = row[2]
 
-    #print data['response']['docs']
-    cur.execute("INSERT INTO test5 VALUES(NULL,"+"\'"+keywords+"\'"+","+test+");")
-    db.commit();
-    # cur.execute("SELECT * FROM test5") 
-    # for row in cur.fetchall() :
-    #     print row[0]
+    if query!=keywords:
+        print "NYT"
+        response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey)
+        #print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
+        data = json.load(response)
+        response.close()
+        JSON=json.dumps(data)
+        JSON = JSON.replace("'","''")
+        cur.execute("INSERT INTO test5 VALUES(NULL,"+"\'"+keywords+"\'"+","+"\'"+JSON+"\'"+");")
+        db.commit();
+        return jsonify(data),201
+    else:
+        print "DB"
+        #print JSON+"\n\n"
+        #OUT=json.loads(JSON)
+        return JSON2,201
+
     cur.close()
     db.close()
-    response.close()
-    #print "ok"
-    return jsonify(data),201
 
 if __name__ == '__main__':
     app.run(debug=True)

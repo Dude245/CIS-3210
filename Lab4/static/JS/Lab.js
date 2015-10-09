@@ -4,11 +4,16 @@ $(document).ready(function(){
     });
     $("#getButtonSub").click(function(){
         $('.ResultText').empty();
+        if($('#getInput').val()== ""){
+            alert("Error: Cannot submit an empty search")
+        }
+        else {
         $.ajax({
             type: "GET",
             url: "api/nyt/",
             data: {'data':encodeURI($('#getInput').val())},
             success: function(data,status,settings) {
+                console.log(JSON.stringify(data))
                 for (i = 0; i<10 ; i++) {
                     line=JSON.stringify(data['response']['docs'][i]['headline']['main']);
                     link=JSON.stringify(data['response']['docs'][i]['web_url']);
@@ -18,5 +23,6 @@ $(document).ready(function(){
             error:function(data,errorThrown){
             }
         });
+    }
     });
 });
