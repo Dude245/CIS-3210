@@ -54,7 +54,7 @@ def get_task():
 
         #print JSON+"\n\n"
         #OUT=json.loads(JSON)
-        return "No",201
+        return JSON,201
 
     cur.close()
     db.close()
