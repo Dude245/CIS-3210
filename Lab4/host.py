@@ -30,11 +30,11 @@ def get_task():
     cur = db.cursor()
     cur.execute("SELECT * FROM test5")
     query = ""
-    JSON = ""
+    jResult = ""
     for row in cur.fetchall() :
         if(keywords == row[1]):
             query = row[1]
-            JSON = row[2]
+            jResult = row[2]
 
     if query!=keywords:
         print "NYT"
@@ -42,19 +42,17 @@ def get_task():
         #print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
         data = json.load(response)
         response.close()
-        JSON=json.dumps(data)
-        JSON = JSON.replace("'","''")
-        cur.execute("INSERT INTO test5 VALUES(NULL,"+"\'"+keywords+"\'"+","+"\'"+JSON+"\'"+");")
+        query=json.dumps(data)
+        query = query.replace("'","''")
+        #print query
+        cur.execute("INSERT INTO test5 VALUES(NULL,"+"\'"+keywords+"\'"+","+"\'"+query+"\'"+");")
         db.commit();
-        return jsonify(data),201
+        return query,201
     else:
         print "DB"
-        # test=json.dumps(JSON)
-        # JSON = JSON.replace("\\\\\","")
-
-        #print JSON+"\n\n"
-        #OUT=json.loads(JSON)
-        return JSON,201
+        n=json.dumps(jResult,ensure_ascii=False)
+        t=json.loads(n)
+        return t,201
 
     cur.close()
     db.close()
