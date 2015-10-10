@@ -37,19 +37,20 @@ def get_task():
             jResult = row[2]
 
     if query!=keywords:
-        print "NYT"
-        response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey)
+        #print "NYT"
+        response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&limit=10&api-key='+apiKey)
         #print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
         data = json.load(response)
         response.close()
         query=json.dumps(data)
-        query = query.replace("'","''")
-        #print query
-        cur.execute("INSERT INTO test5 VALUES(NULL,"+"\'"+keywords+"\'"+","+"\'"+query+"\'"+");")
+        insertThis=("INSERT INTO test5 "
+                        "VALUES (NULL,%s,%s)")
+        data=(keywords,query)
+        cur.execute(insertThis,data)
         db.commit();
         return query,201
     else:
-        print "DB"
+        #print "DB"
         n=json.dumps(jResult,ensure_ascii=False)
         t=json.loads(n)
         return t,201
