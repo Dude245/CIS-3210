@@ -58,5 +58,18 @@ def get_task():
     cur.close()
     db.close()
 
+@app.route('/api/nyt/static/', methods=['GET'])
+def get_static():
+    jFile = open("static/JSON",'r')
+    line=""
+    data=""
+    staticR=""
+    line = jFile.readline()
+    data = json.loads(line)
+    staticR = json.dumps(data)
+    jFile.close()
+    return staticR,201
+
+
 if __name__ == '__main__':
     app.run(debug=True)

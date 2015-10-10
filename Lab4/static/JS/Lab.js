@@ -29,4 +29,23 @@ $(document).ready(function(){
         });
     }
     });
+    $("#loadStatic").click(function(){
+        $('.ResultText').empty();
+        $.ajax({
+            type: "GET",
+            url: "api/nyt/static/",
+            data: {'data':''},
+            success: function(data) {
+                var myObject = JSON.parse(data)
+                for (i = 0; i <10; i++) {
+                    line=myObject.response.docs[i].headline.main
+                    link=myObject.response.docs[i].web_url
+                    $('.ResultText').append("<a target=\"_blank\" href="+link+">"+line+"</a><br>");
+                }
+            },
+            error:function(data,errorThrown){
+                $('#result').val("An error occured!");
+            }
+        });
+    });
 });
