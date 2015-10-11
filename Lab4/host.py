@@ -41,6 +41,11 @@ def get_task():
         response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&limit=10&api-key='+apiKey)
         #print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
         data = json.load(response)
+        # print data['response']['docs'][0]['headline']['main']
+        # print data['response']['docs'][0]['web_url']
+
+        # sample=[{data['response']['docs'][0]['headline']['main']:data['response']['docs'][0]['web_url']}]
+        # print sample[0]
         response.close()
         query=json.dumps(data)
         insertThis=("INSERT INTO test5 "
@@ -51,9 +56,15 @@ def get_task():
         return query,201
     else:
         #print "DB"
-        n=json.dumps(jResult,ensure_ascii=False)
-        t=json.loads(n)
-        return t,201
+        readIn=json.dumps(jResult,ensure_ascii=False)
+        readIn=json.loads(readIn)
+        # sample = [{'text':'headline'},{'url':'test'},
+        #             {'text2':'headline2'},{'url2':'test2'}]
+        # saywhat=json.dumps(sample)
+        # saywhat=json.loads(saywhat)
+        # print saywhat[0]
+        # print saywhat[1]
+        return readIn,201
 
     cur.close()
     db.close()
@@ -66,6 +77,7 @@ def get_static():
     staticR=""
     line = jFile.readline()
     data = json.loads(line)
+
     staticR = json.dumps(data)
     jFile.close()
     return staticR,201

@@ -15,8 +15,7 @@ $(document).ready(function(){
             success: function(data,status,settings) {
                 //console.log(JSON.parse(data))
                 var myObject = JSON.parse(data)
-                console.log(myObject.response.docs.length)
-                for (i = 0; i<myObject.response.docs.length ; i++) {
+                for (i = 0; i<myObject.response.docs.length<10; i++) {
                     // console.log(myObject.response.docs[0].headline.main)
                     // console.log(myObject.response.docs[0].web_url)
                     line=myObject.response.docs[i].headline.main
@@ -34,7 +33,7 @@ $(document).ready(function(){
         $.ajax({
             type: "GET",
             url: "api/nyt/static/",
-            data: {'data':''},
+            data: {'data':""},
             success: function(data) {
                 var myObject = JSON.parse(data)
                 for (i = 0; i <10; i++) {
