@@ -28,7 +28,7 @@ def get_task():
                          db="nreymer") # name of the data base, your username, do not modify
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM test5")
+    cur.execute("SELECT * FROM NYT")
     query = ""
     jResult = ""
     for row in cur.fetchall() :
@@ -38,32 +38,29 @@ def get_task():
 
     if query!=keywords:
         #print "NYT"
+
         response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&limit=10&api-key='+apiKey)
         #print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
-        data = json.load(response)
-        # print data['response']['docs'][0]['headline']['main']
-        # print data['response']['docs'][0]['web_url']
-
-        # sample=[{data['response']['docs'][0]['headline']['main']:data['response']['docs'][0]['web_url']}]
-        # print sample[0]
-        response.close()
-        query=json.dumps(data)
-        insertThis=("INSERT INTO test5 "
+        docs = json.load(response)
+        docs = docs["response"]["docs"]
+        for doc in docs:
+            for key in doc.keys():
+                if(str(key) != 'web_url' and str(key) != 'headline'):
+                    doc.pop(key, None)
+        response.close();
+        insertThis=("INSERT INTO NYT "
                         "VALUES (NULL,%s,%s)")
-        data=(keywords,query)
-        cur.execute(insertThis,data)
+        docs=json.dumps(docs)
+        loadthis=(keywords,docs)
+        cur.execute(insertThis,loadthis)
+
+
         db.commit();
-        return query,201
+        return docs,201
     else:
         #print "DB"
         readIn=json.dumps(jResult,ensure_ascii=False)
         readIn=json.loads(readIn)
-        # sample = [{'text':'headline'},{'url':'test'},
-        #             {'text2':'headline2'},{'url2':'test2'}]
-        # saywhat=json.dumps(sample)
-        # saywhat=json.loads(saywhat)
-        # print saywhat[0]
-        # print saywhat[1]
         return readIn,201
 
     cur.close()
