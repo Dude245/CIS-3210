@@ -28,7 +28,7 @@ def get_task():
                          db="nreymer") # name of the data base, your username, do not modify
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM test5")
+    cur.execute("SELECT * FROM NYT")
     query = ""
     jResult = ""
     for row in cur.fetchall() :
@@ -38,22 +38,30 @@ def get_task():
 
     if query!=keywords:
         #print "NYT"
+
         response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&limit=10&api-key='+apiKey)
         #print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
-        data = json.load(response)
-        response.close()
-        query=json.dumps(data)
-        insertThis=("INSERT INTO test5 "
+        docs = json.load(response)
+        docs = docs["response"]["docs"]
+        for doc in docs:
+            for key in doc.keys():
+                if(str(key) != 'web_url' and str(key) != 'headline'):
+                    doc.pop(key, None)
+        response.close();
+        insertThis=("INSERT INTO NYT "
                         "VALUES (NULL,%s,%s)")
-        data=(keywords,query)
-        cur.execute(insertThis,data)
+        docs=json.dumps(docs)
+        loadthis=(keywords,docs)
+        cur.execute(insertThis,loadthis)
+
+
         db.commit();
-        return query,201
+        return docs,201
     else:
         #print "DB"
-        n=json.dumps(jResult,ensure_ascii=False)
-        t=json.loads(n)
-        return t,201
+        readIn=json.dumps(jResult,ensure_ascii=False)
+        readIn=json.loads(readIn)
+        return readIn,201
 
     cur.close()
     db.close()
@@ -66,6 +74,7 @@ def get_static():
     staticR=""
     line = jFile.readline()
     data = json.loads(line)
+
     staticR = json.dumps(data)
     jFile.close()
     return staticR,201
