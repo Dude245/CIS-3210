@@ -80,6 +80,32 @@ def get_static():
     jFile.close()
     return staticR,201
 
+@app.route('/api/nyt/login/', methods=['GET'])
+def get_login():
+    username="username";
+    passW="password";
+    db = MySQLdb.connect(#host="dursley.socs.uoguelph.ca",
+                         host="tacotaco.asuscomm.com", # our host, do not modify
+                         user="nreymer", # your username (same as in lab)
+                         passwd="0797359", # your password (your student id number)
+                         db="nreymer") # name of the data base, your username, do not modify
+
+    cur = db.cursor()
+    cur.execute("SELECT * FROM auth")
+    for row in cur.fetchall() :
+        print row
+
+
+    insertThis=("INSERT INTO auth "
+                    "VALUES (%s,%s)")
+    loadthis=(username,passW)
+    cur.execute(insertThis,passW)
+    db.commit();
+    cur.close()
+    db.close()
+
+    return "No",201
+
 
 if __name__ == '__main__':
     app.run(debug=True)

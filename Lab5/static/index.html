@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="icon" href="Images/favicon.png">
 
     <title>0797359 Labs</title>
 
@@ -46,17 +46,12 @@
                                 <li class="active"><a href="#">Home</a></li>
                                 <li><a href="#">Nathan Reymer 0797359</a></li>
                                 <li><a href="#">Notes</a></li>
-                                <li><button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">User
-                                <span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Nathan</a></li>
-                                </ul>
+                                  <li><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Login</button></li>
                             </li>
                             </ul>
                         </nav>
 
                     </div>
-
                 </div>
 
                 <div class="inner cover">
@@ -67,7 +62,7 @@
                         <br>
                         <br>
                             <input type="text" id="getInput" name="getInput" placeholder="Keyword(s):"><br><br>
-                            <a id="getButtonSub"class="btn btn-lg btn-default">Submit</a>
+                            <a id="getButtonSub" class="btn btn-lg btn-default">Submit</a>
 
                     </p>
                     <p class="lead">Results:</p>
@@ -81,7 +76,25 @@
         </div>
 
     </div>
-
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Login/Signup</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please enter your existing or new login details:</p>
+                    <input type="text" id="username" name="username" placeholder="Username:"><br><br>
+                    <input type="password" id="userpass" name="userpass" placeholder="Password:">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" >Login | Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -89,7 +102,6 @@
     <script src="JS/bootstrap.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="JS/ie10-viewport-bug-workaround.js"></script>
-    <script type = "text/javascript" src="JS/Lab.js">
-    </script>
+    <script type = "text/javascript" src="JS/Lab.js"></script>
 
 </body></html>

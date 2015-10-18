@@ -46,4 +46,16 @@ $(document).ready(function(){
             }
         });
     });
+    // $("#login").click(function(){
+    //   $.ajax({
+    //       type: "GET",
+    //       url: "api/nyt/login/",
+    //       data: {'data':""},
+    //       success: function(data) {
+    //           }
+    //       },
+    //       error:function(data,errorThrown){
+    //       }
+    //   });
+    // });
 });
