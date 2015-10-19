@@ -32,7 +32,6 @@ $(document).ready(function(){
         $.ajax({
             type: "GET",
             url: "api/nyt/static/",
-            data: {'data':""},
             success: function(data) {
                 var myObject = JSON.parse(data)
                 for (i = 0; i <10; i++) {
@@ -46,16 +45,15 @@ $(document).ready(function(){
             }
         });
     });
-    // $("#login").click(function(){
-    //   $.ajax({
-    //       type: "GET",
-    //       url: "api/nyt/login/",
-    //       data: {'data':""},
-    //       success: function(data) {
-    //           }
-    //       },
-    //       error:function(data,errorThrown){
-    //       }
-    //   });
-    // });
+    $("#loginSub").click(function(){
+      $.ajax({
+          type: 'POST',
+          url: "api/nyt/login/",
+          username: "user",
+          success: function(data) {
+
+
+          }
+      });
+    });
 });

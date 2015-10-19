@@ -3,6 +3,7 @@ import urllib2
 import urllib
 import json
 import MySQLdb
+import hashlib
 
 app = Flask(__name__, static_url_path='')
 tasks = {}
@@ -80,10 +81,11 @@ def get_static():
     jFile.close()
     return staticR,201
 
-@app.route('/api/nyt/login/', methods=['GET'])
+@app.route('/api/nyt/login/', methods=['POST'])
 def get_login():
-    username="username";
-    passW="password";
+    user =  'Username'
+    password = 'Password'
+    password = hashlib.md5(password).hexdigest()
     db = MySQLdb.connect(#host="dursley.socs.uoguelph.ca",
                          host="tacotaco.asuscomm.com", # our host, do not modify
                          user="nreymer", # your username (same as in lab)
@@ -92,14 +94,15 @@ def get_login():
 
     cur = db.cursor()
     cur.execute("SELECT * FROM auth")
-    for row in cur.fetchall() :
-        print row
+    for row in cur.fetchall():
+        if user==row[0] and password == row[1]:
+            print "Its the right password!"
 
 
     insertThis=("INSERT INTO auth "
                     "VALUES (%s,%s)")
-    loadthis=(username,passW)
-    cur.execute(insertThis,passW)
+    loadthis=(user,password)
+    cur.execute(insertThis,loadthis)
     db.commit();
     cur.close()
     db.close()
