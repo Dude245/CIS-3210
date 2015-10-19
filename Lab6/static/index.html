@@ -46,8 +46,8 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Nathan Reymer 0797359</a></li>
                 <!-- <li><a href="#">Notes</a></li> -->
-                <!-- <li><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Login</button></li>
-              </li> -->
+                <li><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Login</button></li>
+              </li>
             </ul>
           </nav>
 
@@ -83,7 +83,7 @@
   </div>
 
 </div>
-<!-- <div id="myModal" class="modal fade">
+<div id="myModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -91,9 +91,11 @@
         <h4 class="modal-title">Login/Signup</h4>
       </div>
       <div class="modal-body">
+        <form role="form">
         <p>Please enter your existing or new login details:</p>
-        <input type="text" id="username" name="username" placeholder="Username:"><br><br>
-        <input type="password" id="userpass" name="userpass" placeholder="Password:">
+        <input type="email" id="txtUsername" name="username" placeholder="Username" required autofocus><br><br>
+        <input type="password" id="txtPassword" name="password" placeholder="Password" required>
+      </form>
       </div>
       <div class="modal-footer">
         <button type="button" id="loginSub" class="btn btn-default" >Login | Submit</button>
@@ -101,7 +103,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
