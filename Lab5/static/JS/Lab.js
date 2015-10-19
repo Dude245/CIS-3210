@@ -49,7 +49,7 @@ $(document).ready(function(){
       $.ajax({
           type: 'POST',
           url: "api/nyt/login/",
-          username: "user",
+          //data: {'data':},
           success: function(data) {
 
 
