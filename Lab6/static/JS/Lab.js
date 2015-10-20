@@ -14,8 +14,6 @@ $(document).ready(function(){
             data: {'data':encodeURI($('#getInput').val())},
             success: function(data,status,settings) {
                 var myObject = JSON.parse(data)
-                //console.log(JSON.parse(data))
-                //console.log(myObject.length)
                 for (i = 0; i<=myObject.length-1; i++) {
                     line=myObject[i].headline.main
                     link=myObject[i].web_url

@@ -42,8 +42,6 @@ def get_task():
         #print "NYT"
 
         response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&limit=10&api-key='+apiKey)
-        #print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
-        docs = json.load(response)
         docs = docs["response"]["docs"]
         for doc in docs:
             for key in doc.keys():

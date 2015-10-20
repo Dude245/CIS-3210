@@ -39,10 +39,9 @@
             <h3 class="masthead-brand">Labs</h3>
             <nav>
               <ul class="nav masthead-nav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="notes.html">Notes</a></li>
+                <li ><a href="index.html">Home</a></li>
+                <li class="active"><a href="notes.html">Notes</a></li>
                 <li><a>Nathan Reymer 0797359</a></li>
-
               </li>
             </ul>
           </nav>
@@ -51,7 +50,7 @@
       </div>
 
       <div class="inner cover">
-        <h1 class="cover-heading">Lab 6</h1><br><br>
+        <h1 class="cover-heading">Lab 6</h1><br>
         <p>Theme:</p>
         <select id = "ThemeSelect">
           <option value="Original">Original</option>
@@ -60,33 +59,23 @@
           <option value="Eye-Bleach">Eye-Bleach</option>
         </select>
         <p class="lead">
+          <p>SQL injection shouldve been solved by my insert method and %</p>
+          <p>Example:</p><p>insertThis=("INSERT INTO NYT ""VALUES (NULL,%s,%s)")</p><p> loadthis=(keywords,docs) cur.execute(insertThis,loadthis)</p>
           <br>
-          <a id="loadStatic"class="btn btn-small btn-default">Load Static</a>
-          <br>
-          <br>
-          <input type="text" id="getInput" name="getInput" placeholder="Keyword(s):"><br><br>
-          <a id="getButtonSub" class="btn btn-lg btn-default">Submit</a>
-        </p>
-        <p class="lead">Results:</p>
-        <div class="ResultText" id="ResultText" align="justify">
+          <p> Also added expiry to cookie for 30 days(1 month)</p>
         </div>
-
       </div>
-
     </div>
 
   </div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
 
-</div>
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-
-<script src="JS/jquery-1.11.3.js"></script>
-<script src="JS/bootstrap.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="JS/ie10-viewport-bug-workaround.js"></script>
-<script type = "text/javascript" src="JS/Lab.js"></script>
-<script src="JS/userCookies.js"></script>
+  <script src="JS/jquery-1.11.3.js"></script>
+  <script src="JS/bootstrap.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="JS/ie10-viewport-bug-workaround.js"></script>
+  <script src="JS/userCookies.js"></script>
 
 </body></html>
