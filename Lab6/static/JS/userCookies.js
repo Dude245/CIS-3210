@@ -1,7 +1,7 @@
 $(document).ready(function(){
   value = getCookie("0797359Theme")
   $('#ThemeSelect').val(value)
-  if(value == 'Original'){
+  if(value == 'Original'|| value==""){
     $('body').css('color',"#fff");
     $('body').css('background',"#333");
   }
@@ -17,7 +17,6 @@ $(document).ready(function(){
   else if(value == 'Eye-Bleach'){
     $('body').css('color',"#fff");
     $('body').css('background-image', 'url(' + 'Images/cutecat.jpg' + ')');
-
   }
   $('#ThemeSelect').on('change',function(){
     if($("#ThemeSelect option:selected").text()=="Original"){

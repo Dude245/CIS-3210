@@ -3,14 +3,9 @@ import urllib2
 import urllib
 import json
 import MySQLdb
-import hashlib
 
 app = Flask(__name__, static_url_path='')
-tasks = {}
 
-
-
-# Routes
 @app.route('/')
 def root():
   return app.send_static_file('index.html')
@@ -23,8 +18,8 @@ def not_found(error):
 def get_task():
     apiKey="6462dcd33e1d47bc2be98167e19c86ab:10:72958436"
     keywords = request.args.get("data");
-    db = MySQLdb.connect(#host="dursley.socs.uoguelph.ca",
-                         host="tacotaco.asuscomm.com", # our host, do not modify
+    db = MySQLdb.connect(host="dursley.socs.uoguelph.ca",
+                         #host="tacotaco.asuscomm.com", # our host, do not modify
                          user="nreymer", # your username (same as in lab)
                          passwd="0797359", # your password (your student id number)
                          db="nreymer") # name of the data base, your username, do not modify
@@ -39,9 +34,8 @@ def get_task():
             jResult = row[2]
 
     if query!=keywords:
-        #print "NYT"
-
         response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&limit=10&api-key='+apiKey)
+        docs = json.load(response)
         docs = docs["response"]["docs"]
         for doc in docs:
             for key in doc.keys():
@@ -58,7 +52,6 @@ def get_task():
         db.commit();
         return docs,201
     else:
-        #print "DB"
         readIn=json.dumps(jResult,ensure_ascii=False)
         readIn=json.loads(readIn)
         return readIn,201
