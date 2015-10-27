@@ -14,7 +14,8 @@ $(document).ready(function(){
           for (i = 0; i<=myObject.length-1; i++) {
               line=myObject[i].headline.main
               link=myObject[i].web_url
-              $("#Search").append("<a target=\"_blank\" href="+link+"><h4>"+line+"</h4>");
+              snipp=JSON.stringify(myObject[i].snippet);
+              $("#Search").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><h5>"+line+"</h5></a>");
            }
       },
       error:function(data,errorThrown){
@@ -29,7 +30,8 @@ $(document).ready(function(){
           for (i = 0; i <10; i++) {
             line=data['results'][i]['display_title'];
             link=JSON.stringify(data['results'][i]['link']['url']);
-            $("#Movies").append("<a target=\"_blank\" href="+link+"><h4>"+line+"</h4>");
+            snipp=JSON.stringify(data['results'][i]['summary_short']);
+            $("#Movies").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><h5>"+line+"</h5></a>");
           }
       },
       error:function(data,errorThrown){
@@ -43,7 +45,8 @@ $(document).ready(function(){
           for (i = 0; i <10; i++) {
             line=data['results'][i]['title'];
             link=JSON.stringify(data['results'][i]['url']);
-            $("#TopStory").append("<a target=\"_blank\" href="+link+"><h4>"+line+"</h4>");
+            snipp=JSON.stringify(data['results'][i]['abstract']);
+            $("#TopStory").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><h5>"+line+"</h5></a>");
           }
       },
       error:function(data,errorThrown){
@@ -69,7 +72,8 @@ $(document).ready(function(){
                 for (i = 0; i<=myObject.length-1; i++) {
                     line=myObject[i].headline.main
                     link=myObject[i].web_url
-                    $("#Search").append("<a target=\"_blank\" href="+link+"><h4>"+line+"</h4>");
+                    snipp=JSON.stringify(myObject[i].snippet);
+                    $("#Search").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><h5>"+line+"</h5></a>");
                  }
             },
             error:function(data,errorThrown){
