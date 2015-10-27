@@ -1,6 +1,6 @@
 ﻿/*=============================================================
     Authour URL: www.designbootstrap.com
-    
+
     http://www.designbootstrap.com/
 
     License: MIT
@@ -10,7 +10,7 @@
     100% Free To use For Personal And Commercial Use.
 
     IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
-   
+
 ========================================================  */
 
 
@@ -35,7 +35,8 @@ section {
 padding-top: 80px;
 padding-bottom: 40px;
 }
-
+a, a:active, a:visited { color: white; }
+ a:hover{color:rgb(228, 79, 79);}
 .pad-bottom {
 padding-bottom: 60px;
 }

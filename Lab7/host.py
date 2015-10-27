@@ -16,7 +16,7 @@ def not_found(error):
 
 @app.route('/api/nyt/', methods=['GET'])
 def get_task():
-    apiKey="6462dcd33e1d47bc2be98167e19c86ab:10:72958436"
+    apiKey="ad725028bcb4e7e7c54824d7ab446f98:18:72958436"
     keywords = request.args.get("data");
     db = MySQLdb.connect(#host="dursley.socs.uoguelph.ca",
                          host="tacotaco.asuscomm.com", # our host, do not modify
@@ -58,6 +58,21 @@ def get_task():
 
     cur.close()
     db.close()
+@app.route('/api/nyt/movies/', methods=['GET'])
+def get_movies():
+        apiKey="e5a0a995c289ffff9a87a95e6c3acc93:3:72958436"
+        response = urllib2.urlopen('http://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key='+apiKey)
+        data = json.load(response)
+        response.close()
+        return jsonify(data),201
+
+@app.route('/api/nyt/top/', methods=['GET'])
+def get_top():
+    apiKey="fba1c9e4f2166b88131b44710e70e6fe:8:72958436"
+    response = urllib2.urlopen('http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/7.json?api-key='+apiKey)
+    data = json.load(response)
+    response.close()
+    return jsonify(data),201
 
 @app.route('/api/nyt/static/', methods=['GET'])
 def get_static():

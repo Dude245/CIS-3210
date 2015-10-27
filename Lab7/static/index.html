@@ -15,6 +15,9 @@
   <link href="assets/js/source/jquery.fancybox.css" rel="stylesheet" />
   <link href="assets/css/animations.min.css" rel="stylesheet" />
   <link href="assets/css/style-red.css" rel="stylesheet" />
+  <style>input{
+    color:black;
+    }</style>
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -129,7 +132,8 @@
       <div class="row text-center animate-in" data-anim-type="fade-in-up" >
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-bottom">
-          <input type="text" id="getInput" name="getInput" placeholder="Keyword(s):"><br><br>
+          <input type="text" id="getInput" name="getInput" placeholder="Keyword(s)"><br><br>
+            <a id="getButtonSub"class="btn btn-med btn-default">Submit</a><br><br>
           <div class="caegories">
             <a href="#" data-filter="*" class="active btn btn-custom btn-custom-two btn-sm">All</a>
             <a href="#" data-filter=".html" class="btn btn-custom btn-custom-two btn-sm">Movies</a>
@@ -141,36 +145,16 @@
       <div class="row text-center animate-in" data-anim-type="fade-in-up" id="work-div">
 
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html">
-          <div class="work-wrapper">
-
-            <!-- <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/1.jpg"> -->
-
-              <!-- <img src="assets/img/portfolio/1.jpg" class="img-responsive img-rounded" alt="" /> -->
-            <!-- </a> -->
-
-            <h4>Recent Movies</h4><br><h4>Recent Movies</h4>
+          <div class="work-wrapper" id="Movies">
+            <!-- <h2>Movie Reviews</h2> -->
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 css">
-          <div class="work-wrapper">
-
-            <!-- <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/2.jpg">
-
-              <img src="assets/img/portfolio/2.jpg" class="img-responsive img-rounded" alt="" />
-            </a> -->
-
-            <h4>Top Stories Top Stories Top Stories Top Stories</h4><br><h4>Top Stories</h4>
+          <div class="work-wrapper" id="TopStory">
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 code">
-          <div class="work-wrapper">
-
-            <!-- <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/4.jpg">
-
-              <img src="assets/img/portfolio/4.jpg" class="img-responsive img-rounded" alt="" />
-            </a> -->
-
-            <h4>NYT Search</h4><br><h4>NYT Search</h4>
+          <div class="work-wrapper" id="Search">
         </div>
       </div>
     </div>
