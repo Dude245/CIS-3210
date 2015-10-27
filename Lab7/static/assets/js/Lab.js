@@ -25,8 +25,6 @@ $(document).ready(function(){
       type: "GET",
       url: "/api/nyt/movies/",
       success: function(data) {
-          //var myObject = JSON.parse(data)
-
           for (i = 0; i <10; i++) {
             line=data['results'][i]['display_title'];
             link=JSON.stringify(data['results'][i]['link']['url']);

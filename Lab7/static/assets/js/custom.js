@@ -1,6 +1,6 @@
 /*=============================================================
     Authour URL: www.designbootstrap.com
-    
+
     http://www.designbootstrap.com/
 
     License: MIT
@@ -10,7 +10,7 @@
     100% Free To use For Personal And Commercial Use.
 
     IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
-   
+
 ========================================================  */
 
 $(document).ready(function () {
@@ -43,8 +43,9 @@ VAGAS SLIDESHOW SCRIPTS
 ======================================*/
 $.vegas('slideshow', {
 backgrounds: [
-{ src: 'assets/img/1.jpg', fade: 1000, delay: 9000 },
+{ src: 'assets/img/5.jpg', fade: 1000, delay: 9000 },
 { src: 'assets/img/2.jpg', fade: 1000, delay: 9000 },
+
 ]
 })('overlay', {
 /** SLIDESHOW OVERLAY IMAGE **/
