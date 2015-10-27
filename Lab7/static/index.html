@@ -42,6 +42,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#home">HOME</a></li>
           <li><a href="#services">API's</a></li>
+          <li><a href="#grid">Notes</a></li>
           <li><a href="#work">WORK</a></li>
           <li><a href="#contact">CONTACT</a></li>
         </ul>
@@ -74,7 +75,7 @@
       <div class="row animate-in" data-anim-type="fade-in-up">
         <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
           <p >
-            Lab 7
+            Lab 6/7
           </p>
           <a href="#services" class=" btn button-custom btn-custom-two">See API List </a>
         </div>
@@ -118,7 +119,36 @@
     </div>
   </section>
   <!--SERVICE SECTION END-->
-
+  <!--GRID SECTION START-->
+  <section id="grid" >
+    <div class="container">
+      <div class="row text-center header animate-in" data-anim-type="fade-in-up">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h3>Notes</h3>
+          <hr/>
+        </div>
+      </div>
+      </div>
+      <div class="row text-center animate-in" data-anim-type="fade-in-up">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2>This Week</h2>
+          Lab 6/7 Combo<br><br>
+          Only mark for Lab 6 please, I didnt want to go back to old theme, not done lab 7 yet :)<br><br><br>
+          SQL injection shouldve been solved by my insert method and %<br>
+          Example:</p><p>insertThis=("INSERT INTO NYT ""VALUES (NULL,%s,%s)")<br> loadthis=(keywords,docs) cur.execute(insertThis,loadthis)<br>
+          Added expiry to cookie for 30 days (1 month)<br>
+          (SELECT * FROM) statement isnt susecptable to injection as it doesnt pass in values<br>
+          I didn't hash any cookies, because I check the string in JS, and all I would send back and forth is the keyword, which is already SQL-Injection proof
+          <br><br><br>
+          Changed the theme, looks a lot less ugly now<br>
+          Movies/Top stories will now auto populate when page loads<br>
+          Cookies changed to last search entry, on page load it loads it from the DB<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--GRID SECTION END-->
   <!--WORK SECTION START-->
   <section id="work" >
     <div class="container">

@@ -1,5 +1,10 @@
 $(document).ready(function(){
   value = getCookie("0797359KeyWord")
+  if(value=="")
+  {
+    value="networking"
+  }
+
   $.ajax({
       type: "GET",
       url: "api/nyt/",
