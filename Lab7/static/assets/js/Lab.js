@@ -1,5 +1,20 @@
 $(document).ready(function(){
-
+  value = getCookie("0797359KeyWord")
+  $.ajax({
+      type: "GET",
+      url: "api/nyt/",
+      data: {'data':value},
+      success: function(data,status,settings) {
+          var myObject = JSON.parse(data)
+          for (i = 0; i<=myObject.length-1; i++) {
+              line=myObject[i].headline.main
+              link=myObject[i].web_url
+              $("#Search").append("<a target=\"_blank\" href="+link+"><h4>"+line+"</h4>");
+           }
+      },
+      error:function(data,errorThrown){
+      }
+  });
   $.ajax({
       type: "GET",
       url: "/api/nyt/movies/",
@@ -44,6 +59,7 @@ $(document).ready(function(){
             url: "api/nyt/",
             data: {'data':encodeURI($('#getInput').val())},
             success: function(data,status,settings) {
+                setCookie('0797359KeyWord',$("#getInput").val(),30);
                 var myObject = JSON.parse(data)
                 for (i = 0; i<=myObject.length-1; i++) {
                     line=myObject[i].headline.main
@@ -74,4 +90,21 @@ $(document).ready(function(){
     //         }
     //     });
     // });
+    function setCookie(name, value,exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+d.toUTCString();
+      document.cookie = name +"=" + value + ";"+ expires;
+
+    }
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+      }
+      return "";
+    }
 });
