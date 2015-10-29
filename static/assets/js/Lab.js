@@ -24,11 +24,13 @@ $(document).ready(function(){
       type: "GET",
       url: "/api/nyt/movies/",
       success: function(data) {
-          for (i = 0; i <10; i++) {
+          for (i = 0; i <12; i++) {
             line=data['results'][i]['display_title'];
             link=JSON.stringify(data['results'][i]['link']['url']);
             snipp=JSON.stringify(data['results'][i]['summary_short']);
-            $("#Movies").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><h5>"+line+"</h5></a>");
+            pic=JSON.stringify(data['results'][i]['multimedia']['resource']['src']);
+            // $("#Movies").append("<img src="+pic+">")
+            $("#Movies").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><p>"+line+"</p></a>");
           }
       },
       error:function(data,errorThrown){
@@ -66,6 +68,9 @@ $(document).ready(function(){
             success: function(data,status,settings) {
                 setCookie('0797359KeyWord',$("#getInput").val(),30);
                 var myObject = JSON.parse(data)
+                  //$("#work-div").append(
+                  //  "<div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4 html\"> <div class=\"work-wrapper\"><h3>Faggit</h3></div></div>");
+
                 for (i = 0; i<=myObject.length-1; i++) {
                     line=myObject[i].headline.main
                     link=myObject[i].web_url
