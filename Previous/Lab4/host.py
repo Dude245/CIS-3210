@@ -5,7 +5,11 @@ import json
 import MySQLdb
 
 app = Flask(__name__, static_url_path='')
+tasks = {}
 
+
+
+# Routes
 @app.route('/')
 def root():
   return app.send_static_file('index.html')
@@ -16,10 +20,9 @@ def not_found(error):
 
 @app.route('/api/nyt/', methods=['GET'])
 def get_task():
-    apiKey="ad725028bcb4e7e7c54824d7ab446f98:18:72958436"
+    apiKey="6462dcd33e1d47bc2be98167e19c86ab:10:72958436"
     keywords = request.args.get("data");
-    db = MySQLdb.connect(host="dursley.socs.uoguelph.ca",
-                         #host="tacotaco.asuscomm.com", # our host, do not modify
+    db = MySQLdb.connect(host="dursley.socs.uoguelph.ca", # our host, do not modify
                          user="nreymer", # your username (same as in lab)
                          passwd="0797359", # your password (your student id number)
                          db="nreymer") # name of the data base, your username, do not modify
@@ -34,12 +37,15 @@ def get_task():
             jResult = row[2]
 
     if query!=keywords:
+        #print "NYT"
+
         response = urllib2.urlopen('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&limit=10&api-key='+apiKey)
+        #print 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+keywords+'&api-key='+apiKey
         docs = json.load(response)
         docs = docs["response"]["docs"]
         for doc in docs:
             for key in doc.keys():
-                if(str(key) != 'web_url' and str(key) != 'headline' and str(key) != 'snippet'):
+                if(str(key) != 'web_url' and str(key) != 'headline'):
                     doc.pop(key, None)
         response.close();
         insertThis=("INSERT INTO NYT "
@@ -52,27 +58,13 @@ def get_task():
         db.commit();
         return docs,201
     else:
+        #print "DB"
         readIn=json.dumps(jResult,ensure_ascii=False)
         readIn=json.loads(readIn)
         return readIn,201
 
     cur.close()
     db.close()
-@app.route('/api/nyt/movies/', methods=['GET'])
-def get_movies():
-        apiKey="e5a0a995c289ffff9a87a95e6c3acc93:3:72958436"
-        response = urllib2.urlopen('http://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key='+apiKey)
-        data = json.load(response)
-        response.close()
-        return jsonify(data),201
-
-@app.route('/api/nyt/top/', methods=['GET'])
-def get_top():
-    apiKey="fba1c9e4f2166b88131b44710e70e6fe:8:72958436"
-    response = urllib2.urlopen('http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/7.json?api-key='+apiKey)
-    data = json.load(response)
-    response.close()
-    return jsonify(data),201
 
 @app.route('/api/nyt/static/', methods=['GET'])
 def get_static():
