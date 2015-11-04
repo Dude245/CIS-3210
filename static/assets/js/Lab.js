@@ -68,8 +68,7 @@ $(document).ready(function(){
             success: function(data,status,settings) {
                 setCookie('0797359KeyWord',$("#getInput").val(),30);
                 var myObject = JSON.parse(data)
-                  // $("#").append(
-                  //  "<div class=\"col-xs-12 col-sm-4 col-md-4 col-lg-4 html\"> <div class=\"work-wrapper\"><a class=\"fancybox-media\" title=\"Drews a faggit, like a really big faggit\" href=\"http://www.designbootstrap.com/wp-content/uploads/2015/02/light-wave-back.png\"><img src=\"http://www.designbootstrap.com/wp-content/uploads/2015/02/light-wave-back.png\" class=\"img-responsive img-rounded\" alt=\"\" /></a></div></div>");
+                  // $("#test").append("<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\"><a class=\"fancybox-media\" title=\"Drews a faggit, like a really big faggit\" href=\"http://www.designbootstrap.com/wp-content/uploads/2015/02/light-wave-back.png\"><img src=\"http://www.designbootstrap.com/wp-content/uploads/2015/02/light-wave-back.png\" class=\"img-responsive img-rounded\" alt=\"\"></a></div>");
 
                 for (i = 0; i<=myObject.length-1; i++) {
                     line=myObject[i].headline.main
