@@ -4,6 +4,47 @@ $(document).ready(function(){
   {
     value="networking"
   }
+  newNews();
+  var myVar = setInterval(newNews, 120000);
+
+  function newNews(){
+  $.ajax({
+      type: "GET",
+      url: "api/nyt/new",
+      data: {'data':value},
+      success: function(data) {
+        $("#test").fadeOut("slow");
+        $("#test").empty();
+          for (i = 0; i <12; i++) {
+            line=data['results'][i]['title'];
+            link=JSON.stringify(data['results'][i]['url']);
+            line2=data['results'][i]['abstract']
+            if(data['results'][i]['multimedia'].length > 0)
+              {
+              src=data['results'][i]['multimedia'][3]['url']
+              cap=data['results'][i]['multimedia'][0]['caption'];
+              if(cap==null)
+                cap=""
+              else {
+                cap = cap.replace(/"/g, "'");
+              }
+              pic1='<center><a class="fancybox-media" align="middle"  title="'+cap+'" height="80" width="80" href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt="" height="80" width="80"/></a></center>'
+
+              $("#test").append("<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">"+"<h4>"+line+"</h4>"+pic1+"<br><br>"+data['results'][i]['abstract']+"<br><br><br></div>");
+            }
+            else {
+              $("#test").append("<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">"+"<h4>"+line+"</h4>"+data['results'][i]['abstract']+"<br><br><br></div>");
+
+              }
+            }
+
+  $("#test").fadeIn("slow");
+
+      },
+      error:function(data,errorThrown){
+      }
+  });
+}
   $.ajax({
       type: "GET",
       url: "api/nyt/",
@@ -45,12 +86,6 @@ $(document).ready(function(){
             line=data['results'][i]['title'];
             link=JSON.stringify(data['results'][i]['url']);
             snipp=JSON.stringify(data['results'][i]['abstract']);
-            src=data['results'][i]['media'][0]['media-metadata'][0]['url']
-            pic1='<center><a class="fancybox-media" align="middle"  title="" height="80" width="80" href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt="" height="80" width="80"/></a></center>'
-            line2=data['results'][i]['abstract']
-
-            $("#test").append("<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">"+"<h4>"+line+"</h4>"+pic1+"<br><br>"+data['results'][i]['abstract']+"<br><br><br></div>");
-
             $("#TopStory").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><h5>"+line+"</h5></a>");
           }
       },

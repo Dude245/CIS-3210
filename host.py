@@ -73,7 +73,13 @@ def get_top():
     data = json.load(response)
     response.close()
     return jsonify(data),201
-
+@app.route('/api/nyt/new/', methods=['GET'])
+def get_mew():
+    apiKey="9f7388a15ad205dddbe2fcc082c14edd%3A3%3A72958436"
+    response = urllib2.urlopen('http://api.nytimes.com/svc/news/v3/content/all/all/.json?api-key='+apiKey)
+    data = json.load(response)
+    response.close()
+    return jsonify(data),201
 @app.route('/api/nyt/static/', methods=['GET'])
 def get_static():
     jFile = open("static/JSON",'r')
