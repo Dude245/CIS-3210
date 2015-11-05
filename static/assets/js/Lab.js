@@ -45,6 +45,12 @@ $(document).ready(function(){
             line=data['results'][i]['title'];
             link=JSON.stringify(data['results'][i]['url']);
             snipp=JSON.stringify(data['results'][i]['abstract']);
+            src=data['results'][i]['media'][0]['media-metadata'][0]['url']
+            pic1='<center><a class="fancybox-media" align="middle"  title="" height="80" width="80" href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt="" height="80" width="80"/></a></center>'
+            line2=data['results'][i]['abstract']
+
+            $("#test").append("<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">"+"<h4>"+line+"</h4>"+pic1+"<br><br>"+data['results'][i]['abstract']+"<br><br><br></div>");
+
             $("#TopStory").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><h5>"+line+"</h5></a>");
           }
       },
@@ -68,12 +74,12 @@ $(document).ready(function(){
             success: function(data,status,settings) {
                 setCookie('0797359KeyWord',$("#getInput").val(),30);
                 var myObject = JSON.parse(data)
-                  // $("#test").append("<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\"><a class=\"fancybox-media\" title=\"Drews a faggit, like a really big faggit\" href=\"http://www.designbootstrap.com/wp-content/uploads/2015/02/light-wave-back.png\"><img src=\"http://www.designbootstrap.com/wp-content/uploads/2015/02/light-wave-back.png\" class=\"img-responsive img-rounded\" alt=\"\"></a></div>");
 
                 for (i = 0; i<=myObject.length-1; i++) {
                     line=myObject[i].headline.main
                     link=myObject[i].web_url
                     snipp=JSON.stringify(myObject[i].snippet);
+
                     $("#Search").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><h5>"+line+"</h5></a>");
                  }
             },
