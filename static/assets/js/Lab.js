@@ -4,6 +4,7 @@ $(document).ready(function(){
   {
     value="networking"
   }
+  $("#test").empty();
   newNews();
   var myVar = setInterval(newNews, 120000);
 
@@ -15,7 +16,7 @@ $(document).ready(function(){
       success: function(data) {
         $("#test").fadeOut("slow");
         $("#test").empty();
-          for (i = 0; i <12; i++) {
+          for (i = 0; i <24; i++) {
             line=data['results'][i]['title'];
             link=JSON.stringify(data['results'][i]['url']);
             line2=data['results'][i]['abstract']
@@ -28,12 +29,12 @@ $(document).ready(function(){
               else {
                 cap = cap.replace(/"/g, "'");
               }
-              pic1='<center><a class="fancybox-media" align="middle"  title="'+cap+'" height="80" width="80" href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt="" height="80" width="80"/></a></center>'
+              pic1='<center><a class="fancybox-media" align="middle"  title="'+cap+'" height="270" width="270" href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt="" height="270" width="270"/></a></center>'
 
-              $("#test").append("<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">"+"<h4>"+line+"</h4>"+pic1+"<br><br>"+data['results'][i]['abstract']+"<br><br><br></div>");
+              $("#test").append("<div class=\"col-xs-4 col-sm-1 col-md-1 col-lg-1\">"+pic1+"<br><br><br></div>");
             }
             else {
-              $("#test").append("<div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6\">"+"<h4>"+line+"</h4>"+data['results'][i]['abstract']+"<br><br><br></div>");
+              $("#test").append("<div class=\"col-xs-4 col-sm-1 col-md-1 col-lg-1\"><h6>"+line+"</h6><br><br><br></div>");
 
               }
             }
