@@ -4,7 +4,6 @@ $(document).ready(function(){
   {
     value="networking"
   }
-  $("#test").empty();
   newNews();
   var myVar = setInterval(newNews, 120000);
 
