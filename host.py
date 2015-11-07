@@ -58,6 +58,7 @@ def get_task():
 
     cur.close()
     db.close()
+
 @app.route('/api/nyt/movies/', methods=['GET'])
 def get_movies():
         apiKey="e5a0a995c289ffff9a87a95e6c3acc93:3:72958436"
@@ -73,6 +74,7 @@ def get_top():
     data = json.load(response)
     response.close()
     return jsonify(data),201
+
 @app.route('/api/nyt/new/', methods=['GET'])
 def get_mew():
     apiKey="9f7388a15ad205dddbe2fcc082c14edd:3:72958436"
@@ -80,19 +82,22 @@ def get_mew():
     data = json.load(response)
     response.close()
     return jsonify(data),201
-@app.route('/api/nyt/static/', methods=['GET'])
-def get_static():
-    jFile = open("static/JSON",'r')
-    line=""
-    data=""
-    staticR=""
-    line = jFile.readline()
-    data = json.loads(line)
 
-    staticR = json.dumps(data)
-    jFile.close()
-    return staticR,201
+@app.route('/api/nyt/science/', methods=['GET'])
+def get_sci():
+    apiKey="fba1c9e4f2166b88131b44710e70e6fe%3A8%3A72958436"
+    response = urllib2.urlopen('http://api.nytimes.com/svc/mostpopular/v2/mostviewed/science/7.json?api-key='+apiKey)
+    data = json.load(response)
+    response.close()
+    return jsonify(data),201
 
+@app.route('/api/nyt/politics/', methods=['GET'])
+def get_pol():
+    apiKey="fba1c9e4f2166b88131b44710e70e6fe%3A8%3A72958436"
+    response = urllib2.urlopen('http://api.nytimes.com/svc/mostpopular/v2/mostviewed/politics/7.json?api-key='+apiKey)
+    data = json.load(response)
+    response.close()
+    return jsonify(data),201
 
 if __name__ == '__main__':
     app.run(debug=True)

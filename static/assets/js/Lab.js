@@ -20,7 +20,7 @@ $(document).ready(function(){
             line=data['results'][i]['title'];
             link=JSON.stringify(data['results'][i]['url']);
             line2=data['results'][i]['abstract']
-            if(data['results'][i]['multimedia'].length > 0)
+            if(data['results'][i]['multimedia'].length > 3)
               {
               src=data['results'][i]['multimedia'][3]['url']
               cap=data['results'][i]['multimedia'][0]['caption'];
@@ -29,12 +29,13 @@ $(document).ready(function(){
               else {
                 cap = cap.replace(/"/g, "'");
               }
-              pic1='<center><a class="fancybox-media" align="middle"  title="'+cap+'" height="270" width="270" href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt="" height="270" width="270"/></a></center>'
 
-              $("#test").append("<div class=\"col-xs-4 col-sm-1 col-md-1 col-lg-1\">"+pic1+"<br><br><br></div>");
+              pic1='<center><a class="fancybox-media" align="middle"  title="'+line+''+"<br><br>"+cap+'<a target=\'_blank\' style=\'color: #CC0000\' href='+data['results'][i]['url']+'><br>Link</a>" height="270" width="270" href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt="" height="270" width="270"/></a></center>'
+
+              $("#test").append("<div class=\"col-xs-12 col-sm-1 col-md-1 col-lg-1\">"+pic1+"<br><br></div>");
             }
             else {
-              $("#test").append("<div class=\"col-xs-4 col-sm-1 col-md-1 col-lg-1\"><h6>"+line+"</h6><br><br><br></div>");
+              $("#test").append("<div class=\"col-xs-12 col-sm-1 col-md-1 col-lg-1\"><h6>"+"<a target=\'_blank\' href="+data['results'][i]['url']+">"+line+"</a>"+"</h6><br><br></div>");
 
               }
             }
@@ -76,7 +77,34 @@ $(document).ready(function(){
           }
       },
       error:function(data,errorThrown){
-          $('#result').val("An error occured!");
+      }
+  });
+  $.ajax({
+      type: "GET",
+      url: "/api/nyt/science/",
+      success: function(data) {
+          for (i = 0; i <20; i++) {
+            line=data['results'][i]['title'];
+            link=JSON.stringify(data['results'][i]['url']);
+            snipp=JSON.stringify(data['results'][i]['abstract']);
+            $("#Science").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><p>"+line+"</p></a>");
+          }
+      },
+      error:function(data,errorThrown){
+      }
+  });
+  $.ajax({
+      type: "GET",
+      url: "/api/nyt/politics/",
+      success: function(data) {
+          for (i = 0; i <10; i++) {
+            line=data['results'][i]['title'];
+            link=JSON.stringify(data['results'][i]['url']);
+            snipp=JSON.stringify(data['results'][i]['abstract']);
+            $("#Politics").append("<a target=\"_blank\"  href="+link+" title="+snipp+"><p>"+line+"</p></a>");
+          }
+      },
+      error:function(data,errorThrown){
       }
   });
   $.ajax({
