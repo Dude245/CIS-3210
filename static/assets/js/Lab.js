@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   value = getCookie("0797359KeyWord")
   if(value=="")
   {
@@ -15,10 +16,11 @@ $(document).ready(function(){
       success: function(data) {
         $("#test").fadeOut("slow");
         $("#test").empty();
-          for (i = 0; i <24; i++) {
+          for (i = 0; i <48; i++) {
             line=data['results'][i]['title'];
             link=JSON.stringify(data['results'][i]['url']);
             line2=data['results'][i]['abstract']
+            
             if(data['results'][i]['multimedia'].length > 3)
               {
               src=data['results'][i]['multimedia'][3]['url']
@@ -28,16 +30,20 @@ $(document).ready(function(){
               else {
                 cap = cap.replace(/"/g, "'");
               }
-
-              pic1='<center><a class="fancybox-media" align="middle"  title="'+line+''+"<br><br>"+cap+'<a target=\'_blank\' style=\'color: #CC0000\' href='+data['results'][i]['url']+'><br>Link</a>" height="270" width="270" href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt="" height="270" width="270"/></a></center>'
-
-              $("#test").append("<div class=\"col-xs-12 col-sm-1 col-md-1 col-lg-1\">"+pic1+"<br><br></div>");
+              title=''+line+''+"<br><br>"+cap+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br>Link</a>'
+              pic1='<center><a  style=\'color: #CC0000\' class="fancybox-media"  onMouseOver="javascript: this.title=\'\';" onclick="javascript: this.title=\''+title+'\';" align="middle"  title=""  href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt=""/></a></center>'
+              $("#test").append("<div class=\"col-sm-1\">"+pic1+"<br><br></div>");
             }
             else {
-              $("#test").append("<div class=\"col-xs-12 col-sm-1 col-md-1 col-lg-1\"><h6>"+"<a target=\'_blank\' href="+data['results'][i]['url']+">"+line+"</a>"+"</h6><br><br></div>");
+              console.log("MEawx")
+              cap="";
+              src="assets/img/logo.png"
+              title=''+line+''+"<br><br>"+cap+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br>Link</a>'
+              pic1='<center><a  style=\'color: #CC0000\' class="fancybox-media"  onMouseOver="javascript: this.title=\'\';" onclick="javascript: this.title=\''+title+'\';" align="middle"  title=""  href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt=""/></a></center>'
+              $("#test").append("<div class=\"col-sm-1\">"+pic1+"<br><br></div>");
+            }
 
               }
-            }
 
   $("#test").fadeIn("slow");
 

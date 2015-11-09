@@ -59,9 +59,10 @@ $(document).ready(function () {
   $('.fancybox-media').fancybox({
     openEffect: 'elastic',
     closeEffect: 'elastic',
+    titleFromAlt: true,
     helpers: {
       title: {
-        type: 'inside'
+        type: 'none'
       }
     }
   });

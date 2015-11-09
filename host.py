@@ -78,7 +78,7 @@ def get_top():
 @app.route('/api/nyt/new/', methods=['GET'])
 def get_mew():
     apiKey="9f7388a15ad205dddbe2fcc082c14edd:3:72958436"
-    response = urllib2.urlopen('http://api.nytimes.com/svc/news/v3/content/nyt/all/.json?limit=24&api-key='+apiKey)
+    response = urllib2.urlopen('http://api.nytimes.com/svc/news/v3/content/nyt/all/.json?limit=48&api-key='+apiKey)
     data = json.load(response)
     response.close()
     return jsonify(data),201
