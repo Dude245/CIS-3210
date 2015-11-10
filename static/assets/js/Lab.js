@@ -27,12 +27,12 @@ $(document).ready(function(){
               if(cap==null)
               {
                 cap=""
-                cap=line2
+              //  cap=line2
               }
               if(cap[0]=="<")
               {
                 cap=""
-                cap=line2
+                //cap=line2
               }
               else {
                 cap = cap.replace(/'/g, "\\\'");
@@ -41,14 +41,14 @@ $(document).ready(function(){
 
 
 
-              title='<h5>'+line+'</h5>'+"<br>"+cap+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br><br>Link</a>'
+              title='<h5>'+line+'</h5>'+"<br>"+cap+'<br><br>'+line2+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br><br>Link</a>'
               pic1='<center><a  style=\'color: #CC0000\' class="fancybox-media"  onMouseOver="javascript: this.title=\'\';" onclick="javascript: this.title=\''+title+'\';" align="middle"  title=""  href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt=""/></a></center>'
               $("#test").append("<div class=\"col-sm-1\">"+pic1+"<br><br></div>");
             }
             else {
               cap="";
               src="assets/img/logo.png"
-              title='<h5>'+line+'</h5>'+"<br>"+line2+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br><br>Link</a>'
+              title='<h5>'+line+'</h5>'+'<br>'+line2+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br><br>Link</a>'
               pic1='<center><a  style=\'color: #CC0000\' class="fancybox-media"  onMouseOver="javascript: this.title=\'\';" onclick="javascript: this.title=\''+title+'\';" align="middle"  title=""  href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt=""/></a></center>'
               $("#test").append("<div class=\"col-sm-1\">"+pic1+"<br><br></div>");
             }
