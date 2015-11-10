@@ -20,25 +20,35 @@ $(document).ready(function(){
             line=data['results'][i]['title'];
             link=JSON.stringify(data['results'][i]['url']);
             line2=data['results'][i]['abstract']
-            
             if(data['results'][i]['multimedia'].length > 3)
               {
               src=data['results'][i]['multimedia'][3]['url']
               cap=data['results'][i]['multimedia'][0]['caption'];
               if(cap==null)
+              {
                 cap=""
-              else {
-                cap = cap.replace(/"/g, "'");
+                cap=line2
               }
-              title=''+line+''+"<br><br>"+cap+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br>Link</a>'
+              if(cap[0]=="<")
+              {
+                cap=""
+                cap=line2
+              }
+              else {
+                cap = cap.replace(/'/g, "\\\'");
+                cap = cap.replace(/"/g, "\\\'");
+              }
+
+
+
+              title='<h5>'+line+'</h5>'+"<br>"+cap+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br><br>Link</a>'
               pic1='<center><a  style=\'color: #CC0000\' class="fancybox-media"  onMouseOver="javascript: this.title=\'\';" onclick="javascript: this.title=\''+title+'\';" align="middle"  title=""  href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt=""/></a></center>'
               $("#test").append("<div class=\"col-sm-1\">"+pic1+"<br><br></div>");
             }
             else {
-              console.log("MEawx")
               cap="";
               src="assets/img/logo.png"
-              title=''+line+''+"<br><br>"+cap+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br>Link</a>'
+              title='<h5>'+line+'</h5>'+"<br>"+line2+' <a  target=_blank style=color:#CC0000 href='+data['results'][i]['url']+' <br><br><br>Link</a>'
               pic1='<center><a  style=\'color: #CC0000\' class="fancybox-media"  onMouseOver="javascript: this.title=\'\';" onclick="javascript: this.title=\''+title+'\';" align="middle"  title=""  href="'+src+'"><img align="middle" src="'+src+'" class="img-responsive img-rounded" alt=""/></a></center>'
               $("#test").append("<div class=\"col-sm-1\">"+pic1+"<br><br></div>");
             }
