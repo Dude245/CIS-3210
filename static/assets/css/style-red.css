@@ -26,6 +26,18 @@ GOOGLE FONT
 /* =============================================================
 GENERAL STYLES
 ============================================================ */
+@media (max-width: 1024px){
+#mobileCheck
+{
+  display: none;
+   visibility: hidden;
+}
+}
+/*#mobileCheck
+{
+  display: none;
+   visibility: hidden;
+}*/
 body {
 font-family: 'Ubuntu', sans-serif;
 color: #fff;
