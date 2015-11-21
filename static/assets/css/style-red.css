@@ -26,29 +26,16 @@ GOOGLE FONT
 /* =============================================================
 GENERAL STYLES
 ============================================================ */
-
-#mobileCheck3
-{
-  display: none;
-   visibility: hidden;
+select {
+  font-family: 'Ubuntu', sans-serif;
+  color: #fff;
 }
-
 
 @media (max-width: 1024px){
 #mobileCheck
 {
   display: none;
    visibility: hidden;
-}
-#mobileCheck2
-{
-  display: none;
-   visibility: hidden;
-}
-#mobileCheck3
-{
-  display: inherit;
-   visibility: visible;
 }
 
 }

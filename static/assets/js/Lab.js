@@ -1,3 +1,8 @@
+if($(window).width()<1024)
+{
+  $("#mobileCheck2").empty();
+  $("#mobileCheck2").append('<li><a href="#home">Home</a></li><li><a href="#work">Search</a></li><li><a href="#grid">Notes</a></li><li><a href="#services">API\'s</a></li>')
+}
 $(document).ready(function(){
 
   value = getCookie("0797359KeyWord")
@@ -7,6 +12,11 @@ $(document).ready(function(){
   }
   newNews();
   var myVar = setInterval(newNews, 120000);
+
+
+
+
+
 
   function newNews(){
   $.ajax({
@@ -82,7 +92,7 @@ $(document).ready(function(){
       type: "GET",
       url: "/api/nyt/movies/",
       success: function(data) {
-          for (i = 0; i <12; i++) {
+          for (i = 0; i < 12; i++) {
             line=data['results'][i]['display_title'];
             link=JSON.stringify(data['results'][i]['link']['url']);
             snipp=JSON.stringify(data['results'][i]['summary_short']);
