@@ -26,12 +26,31 @@ GOOGLE FONT
 /* =============================================================
 GENERAL STYLES
 ============================================================ */
+
+#mobileCheck3
+{
+  display: none;
+   visibility: hidden;
+}
+
+
 @media (max-width: 1024px){
 #mobileCheck
 {
   display: none;
    visibility: hidden;
 }
+#mobileCheck2
+{
+  display: none;
+   visibility: hidden;
+}
+#mobileCheck3
+{
+  display: inherit;
+   visibility: visible;
+}
+
 }
 /*#mobileCheck
 {

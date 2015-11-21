@@ -98,7 +98,7 @@ $(document).ready(function(){
       type: "GET",
       url: "/api/nyt/science/",
       success: function(data) {
-          for (i = 0; i <20; i++) {
+          for (i = 0; i <data['results'].length; i++) {
             line=data['results'][i]['title'];
             link=JSON.stringify(data['results'][i]['url']);
             snipp=JSON.stringify(data['results'][i]['abstract']);
