@@ -26,10 +26,11 @@ GOOGLE FONT
 /* =============================================================
 GENERAL STYLES
 ============================================================ */
-select {
-  font-family: 'Ubuntu', sans-serif;
-  color: #fff;
-}
+/*#mobileCheck
+{
+   margin-left: 150px;
+   margin-right: 150px;
+}*/
 
 @media (max-width: 1024px){
 #mobileCheck

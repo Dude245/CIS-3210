@@ -13,11 +13,6 @@ $(document).ready(function(){
   newNews();
   var myVar = setInterval(newNews, 120000);
 
-
-
-
-
-
   function newNews(){
   $.ajax({
       type: "GET",
